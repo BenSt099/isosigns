@@ -1,4 +1,4 @@
-# isosafety
+# isosigns
 
 [![Static Badge](https://img.shields.io/badge/Version-v1.4-blue)](https://github.com/BenSt099/isosafety/releases/tag/v1.3)
 [![Static Badge](https://img.shields.io/badge/Package-CTAN-blue)](https://www.ctan.org/pkg/isosafety)
