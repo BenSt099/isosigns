@@ -80,7 +80,7 @@
 \singlespacing
 
 \newpage
-
+\thispagestyle{empty}
 \begin{center}
     \begin{tcolorbox}[colback=white,colframe=gray-700, width=5.5cm,halign=center,boxrule=0.2mm]
         {\Large The {\sffamily isosigns} package}
@@ -95,7 +95,7 @@
 
 \begin{abstract}
 \noindent This is the official documentation of the package \textbf{isosigns}. It provides ISO colors and signs according to the ISO standards
-3864 and 7010. It can be used to create instructions for chemical or physical experiments.
+3864, 7001 and 7010. These standards can be used to create instructions for chemical or physical experiments.
 \end{abstract}\vspace{10mm}
 
 \begin{tcolorbox}[leftrule=3mm,colback=red-200,colframe=red-800,lower separated=false,sidebyside,lefthand width=1.5cm]
@@ -143,7 +143,7 @@ You can load the package with the following command in the preamble:
 
 \noindent This package has the following dependencies: \texttt{graphicx}, \texttt{xcolor}, \texttt{ifthen}, \texttt{xkeyval}
 
-\section{ISO Colors}
+\section{ISO Colors (standard 3864)}
 
 Seven colors are defined which are also used to create the signs: \vspace{5mm}
 
@@ -197,7 +197,7 @@ Seven colors are defined which are also used to create the signs: \vspace{5mm}
 \begin{tcolorbox}[colback=gray-200]
     \vspace{3mm}
     \begin{verbatim}
-    \Isosign7010{<Letter><Number>}
+    \Isosign{<Letter><Number>}
     \end{verbatim}    
 \end{tcolorbox}
 \vspace{5mm}
@@ -215,13 +215,15 @@ To display a sign, use the following code:
 
     \begin{document}
 
-            \includegraphics{\Isosign7010{F001}}
+            \includegraphics{\Isosign{F001}}
 
-            \includegraphics[scale=2]{\Isosign7010{P074}}
+            \includegraphics[scale=2]{\Isosign{P074}}
 
     \end{document}
     \end{verbatim}    
 \end{tcolorbox}
+
+\noindent\textbf{NOTE}: For more information about the signs and standards, take a look at \href{https://en.wikipedia.org/wiki/ISO_7010}{\textcolor{blue-700}{https://en.wikipedia.org/wiki/ISO\_7010}}.
 
 \begin{center}
 \begin{tabular}{cccccc}
@@ -433,9 +435,9 @@ To display a sign, use the following code:
         Accessibility & AC & (001 - 023) \\
         Public facilities & PF & (001 - 005, 007 - 021, 023 - 030, 032 - 034, 036, 037, 043, 044, \\
         & & 050, 054, 062 - 070, 074 - 082) \\
-        Transportation facilities & TF & (001 - 040, 042 - 044) \\
+        Transportation facilities & TF & (001 - 021, 027 - 040, 042 - 044) \\
         Behaviour of the public & BP & (001 - 019) \\
-        Commercial facilities & CF & (001 - 022) \\
+        Commercial facilities & CF & (001 - 012, 014 - 022) \\
         Tourism, culture and heritage & TC & (001 - 018) \\
         Sporting activities & SA & (001 - 004) \\
         \hline
@@ -446,7 +448,7 @@ To display a sign, use the following code:
 \begin{tcolorbox}[colback=gray-200]
     \vspace{3mm}
     \begin{verbatim}
-    \Isosign7001{<Letter><Number>}
+    \Isosignpi{<Letter><Number>}
     \end{verbatim}    
 \end{tcolorbox}
 \vspace{5mm}
@@ -464,13 +466,148 @@ To display a sign, use the following code:
 
     \begin{document}
 
-            \includegraphics{\Isosign7001{AC001}}
+            \includegraphics{\Isosignpi{AC001}}
 
-            \includegraphics[scale=2]{\Isosign7001{PF024}}
+            \includegraphics[scale=2]{\Isosignpi{PF024}}
 
     \end{document}
     \end{verbatim}    
 \end{tcolorbox}
+
+\noindent\textbf{NOTE}: For more information about the signs and standards, take a look at \href{https://en.wikipedia.org/wiki/ISO_7001}{\textcolor{blue-700}{https://en.wikipedia.org/wiki/ISO\_7001}}.
+
+\newpage
+
+\begin{center}
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC006.pdf} \\
+        \texttt{AC001} & \texttt{AC002} & \texttt{AC003} & \texttt{AC004} & \texttt{AC005} & \texttt{AC006} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC012.pdf} \\
+        \texttt{AC007} & \texttt{AC008} & \texttt{AC009} & \texttt{AC010} & \texttt{AC011} & \texttt{AC012} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC013.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC018.pdf} \\
+        \texttt{AC013} & \texttt{AC014} & \texttt{AC015} & \texttt{AC016} & \texttt{AC017} & \texttt{AC018} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC019.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC020.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC021.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC022.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_AC023.pdf} \\
+        \texttt{AC019} & \texttt{AC020} & \texttt{AC021} & \texttt{AC022} & \texttt{AC023} \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF007.pdf} \\
+        \texttt{PF001} & \texttt{PF002} & \texttt{PF003} & \texttt{PF004} & \texttt{PF005} & \texttt{PF007} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF012.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF013.pdf} \\
+        \texttt{PF008} & \texttt{PF009} & \texttt{PF010} & \texttt{PF011} & \texttt{PF012} & \texttt{PF013} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF018.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF019.pdf} \\
+        \texttt{PF014} & \texttt{PF015} & \texttt{PF016} & \texttt{PF017} & \texttt{PF018} & \texttt{PF019} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF020.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF021.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF023.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF024.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF025.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF026.pdf} \\
+        \texttt{PF020} & \texttt{PF021} & \texttt{PF023} & \texttt{PF024} & \texttt{PF025} & \texttt{PF026} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF027.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF028.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF029.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF030.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF032.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF033.pdf} \\
+        \texttt{PF027} & \texttt{PF028} & \texttt{PF029} & \texttt{PF030} & \texttt{PF032} & \texttt{PF033} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF034.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF036.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF037.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF043.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF044.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF050.pdf} \\
+        \texttt{PF034} & \texttt{PF036} & \texttt{PF037} & \texttt{PF043} & \texttt{PF044} & \texttt{PF050} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF054.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF062.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF063.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF064.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF065.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF066.pdf} \\
+        \texttt{PF054} & \texttt{PF062} & \texttt{PF063} & \texttt{PF064} & \texttt{PF065} & \texttt{PF066} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF067.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF068.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF069.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF070.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF074.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF075.pdf} \\
+        \texttt{PF067} & \texttt{PF068} & \texttt{PF069} & \texttt{PF070} & \texttt{PF074} & \texttt{PF075} \\
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF076.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF077.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF078.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF079.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF080.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF081.pdf} \\
+        \texttt{PF076} & \texttt{PF077} & \texttt{PF078} & \texttt{PF079} & \texttt{PF080} & \texttt{PF081} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_PF082.pdf} & & & & & \\
+        \texttt{PF082} & & & & & \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF006.pdf} \\
+        \texttt{TF001} & \texttt{TF002} & \texttt{TF003} & \texttt{TF004} & \texttt{TF005} & \texttt{TF006} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF012.pdf} \\
+        \texttt{TF007} & \texttt{TF008} & \texttt{TF009} & \texttt{TF010} & \texttt{TF011} & \texttt{TF012} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF013.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF018.pdf} \\
+        \texttt{TF013} & \texttt{TF014} & \texttt{TF015} & \texttt{TF016} & \texttt{TF017} & \texttt{TF018} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF019.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF020.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF021.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF027.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF028.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF029.pdf} \\
+        \texttt{TF019} & \texttt{TF020} & \texttt{TF021} & \texttt{TF027} & \texttt{TF028} & \texttt{TF029} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF030.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF031.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF032.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF033.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF034.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF035.pdf} \\
+        \texttt{TF030} & \texttt{TF031} & \texttt{TF032} & \texttt{TF033} & \texttt{TF034} & \texttt{TF035} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF036.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF037.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF038.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF039.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF040.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF042.pdf} \\
+        \texttt{TF036} & \texttt{TF037} & \texttt{TF038} & \texttt{TF039} & \texttt{TF040} & \texttt{TF042} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF043.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TF044.pdf} & & & & \\
+        \texttt{TF043} & \texttt{TF044} & & & & \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP006.pdf} \\
+        \texttt{BP001} & \texttt{BP002} & \texttt{BP003} & \texttt{BP004} & \texttt{BP005} & \texttt{BP006} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP012.pdf} \\
+        \texttt{BP007} & \texttt{BP008} & \texttt{BP009} & \texttt{BP010} & \texttt{BP011} & \texttt{BP012} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP013.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP018.pdf} \\
+        \texttt{BP013} & \texttt{BP014} & \texttt{BP015} & \texttt{BP016} & \texttt{BP017} & \texttt{BP018} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_BP019.pdf} & & & & & \\
+        \texttt{BP019} & & & & &\\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF006.pdf} \\
+        \texttt{CF001} & \texttt{CF002} & \texttt{CF003} & \texttt{CF004} & \texttt{CF005} & \texttt{CF006} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF012.pdf} \\
+        \texttt{CF007} & \texttt{CF008} & \texttt{CF009} & \texttt{CF010} & \texttt{CF011} & \texttt{CF012} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF018.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF019.pdf} \\
+        \texttt{CF014} & \texttt{CF015} & \texttt{CF016} & \texttt{CF017} & \texttt{CF018} & \texttt{CF019} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF020.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF021.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_CF022.pdf} & & & \\
+        \texttt{CF020} & \texttt{CF021} & \texttt{CF022} & & & \\
+        \hline
+\end{tabular}\vspace{10mm}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC006.pdf} \\
+        \texttt{TC001} & \texttt{TC002} & \texttt{TC003} & \texttt{TC004} & \texttt{TC005} & \texttt{TC006} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC012.pdf} \\
+        \texttt{TC007} & \texttt{TC008} & \texttt{TC009} & \texttt{TC010} & \texttt{TC011} & \texttt{TC012} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC013.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_TC018.pdf} \\
+        \texttt{TC013} & \texttt{TC014} & \texttt{TC015} & \texttt{TC016} & \texttt{TC017} & \texttt{TC018} \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_SA001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_SA002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_SA003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/ISO_7001_PI_SA004.pdf} & & \\
+        \texttt{SA001} & \texttt{SA002} & \texttt{SA003} & \texttt{SA004} & & \\
+        \hline
+\end{tabular}
+\end{center}
 
 \newpage
 
@@ -487,7 +624,7 @@ of isosafety. This can be done by supplying it through the \textbf{fullpath}-opt
     \documentclass{article}
     
                                 % example path
-        \usepackage[ fullpath = /texlive/2024/texmf-dist/tex/latex/isosafety ]{isosafety}
+        \usepackage[ fullpath = /texlive/2024/texmf-dist/tex/latex/isosigns ]{isosigns}
 
     \begin{document}
 
@@ -502,7 +639,7 @@ of isosafety. This can be done by supplying it through the \textbf{fullpath}-opt
 
 \noindent If you are unsure about the path, simply execute 
 \begin{verbatim}
-    kpsewhich isosafety.sty
+    kpsewhich isosigns.sty
 \end{verbatim}\vspace{3mm} 
 
 \noindent in a terminal and a path will be returned. The path that is given in the example is the typical path on most systems. 
@@ -511,7 +648,5 @@ of isosafety. This can be done by supplying it through the \textbf{fullpath}-opt
 \noindent\textbf{NOTE}: On Windows, the path should also be given with foreslashes (just like in the example). \\
 
 \noindent\textbf{NOTE}: The last directory in the path \textit{does not} end with a foreslash (just like in the example). \\
-
-\noindent\textbf{NOTE}: For more information about the signs and standards, take a look at \href{https://en.wikipedia.org/wiki/ISO_7010}{https://en.wikipedia.org/wiki/ISO\_7010}.
 
 \end{document}

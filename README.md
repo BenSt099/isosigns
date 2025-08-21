@@ -1,13 +1,13 @@
 # isosigns
 
-[![Static Badge](https://img.shields.io/badge/Version-v1.4-blue)](https://github.com/BenSt099/isosafety/releases/tag/v1.3)
+[![Static Badge](https://img.shields.io/badge/Version-v2-blue)](https://github.com/BenSt099/isosigns/releases/tag/v2)
 [![Static Badge](https://img.shields.io/badge/Package-CTAN-blue)](https://www.ctan.org/pkg/isosafety)
 ![Static Badge](https://img.shields.io/badge/Size-%3C2%20MB-red)
 ![Static Badge](https://img.shields.io/badge/Maintained-Yes-success)
 
 ## Documentation
 
-The documentation can be viewed [here](https://github.com/BenSt099/isosafety/blob/main/isosafety/doc/isosafety-docs.pdf).
+The documentation can be viewed [here](https://github.com/BenSt099/isosigns/blob/main/isosigns/doc/isosigns-docs.pdf).
 
 ## Known Issues
 
@@ -18,8 +18,6 @@ If Latex tells you that it does not find any pdf-files, please provide a full pa
 ```
                         % example path
 \usepackage[ fullpath = /texlive/2024/texmf-dist/tex/latex/isosafety ]{isosafety}
-
-\usepackage{graphicx}
 
 \begin{document}
 
