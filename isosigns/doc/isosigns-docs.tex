@@ -9,12 +9,23 @@
 \definecolor{Backgrounds}{HTML}{ECECE7}  
 \definecolor{Symbol}{HTML}{2B2B2C} 
 \usepackage{array}
+\usepackage{setspace}
 \usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=black,
+    citecolor=black
+}
+\urlstyle{same}
+
 \usepackage{verbatim}
 \makeatletter
 \newcommand{\verbatimfontfamily}[1]{\def\verbatim@font{#1}}%
 \makeatother
 \usepackage{colortbl}
+\usepackage{amssymb}
 \usepackage{geometry}
 \geometry{
     left=2cm,
@@ -24,47 +35,106 @@
 }
 \usepackage{tcolorbox}
 
+\definecolor{logocolor}{HTML}{611729}
+\definecolor{logocolordark}{HTML}{2e0b14}
+
+\usepackage{lcep}
+
 \begin{document}
+\thispagestyle{empty}
+
+\tcbset{colback=logocolor,colframe=logocolordark}
+
+\begin{flushright}
+\begin{tcolorbox}[leftrule=3mm,arc=0mm,width=4.5cm]
+\begin{center}
+{\Large\textcolor{white}{\it\bf VERSION 2}}
+\end{center}
+\end{tcolorbox}
+\end{flushright}
+
+\begin{flushright}
+\begin{tcolorbox}[leftrule=3mm,arc=0mm,width=6.5cm]
+\begin{center}
+{\Large\textcolor{white}{\it\bf AUGUST 21, 2025}}
+\end{center}
+\end{tcolorbox}
+\end{flushright}
+
+\hspace{0pt}
+\vfill
+\begin{center}
+\includegraphics[scale=1.0]{isosigns_logo.pdf}
+\end{center}\vspace{2mm}
+\begin{center}
+    \href{https://github.com/BenSt099/isosigns}{\textcolor{black}{Link $\looparrowright$}}
+\end{center}
+\vfill
+\hspace{0pt}
+\newpage
+
+\thispagestyle{empty}
+
+\doublespacing
+\tableofcontents
+\singlespacing
+
+\newpage
 
 \begin{center}
-    {\Huge isosafety} \vspace{5mm}
+    \begin{tcolorbox}[colback=white,colframe=gray-700, width=5.5cm,halign=center,boxrule=0.2mm]
+        {\Large The {\sffamily isosigns} package}
 
-    {\Large Version 2}\vspace{5mm}
+        Manual for version 2
+    \end{tcolorbox}\vspace{15mm}
 
-    {\Large August 21, 2025}\vspace{5mm}
+    \href{https://www.ctan.org/pkg/isosafety}{\textcolor{blue-700}{https://www.ctan.org/pkg/isosafety}}\vspace{6mm}
 
-    \href{https://github.com/BenSt099/isosafety}{github.com/BenSt099/isosafety} 
-\end{center}\vspace{5mm}
+    \href{https://github.com/BenSt099/isosigns}{\textcolor{blue-700}{https://github.com/BenSt099/isosigns}}
+\end{center}\vspace{7mm}
 
-\section{General information}
+\begin{abstract}
+\noindent This is the official documentation of the package \textbf{isosigns}. It provides ISO colors and signs according to the ISO standards
+3864 and 7010. It can be used to create instructions for chemical or physical experiments.
+\end{abstract}\vspace{10mm}
 
-This is the official documentation of the package \textbf{isosafety}. It provides ISO colors and signs according to the ISO standards
-3864 and 7010. It can be used to create instructions for chemical or physical experiments.\vspace{5mm}
+\begin{tcolorbox}[leftrule=3mm,colback=red-200,colframe=red-800,lower separated=false,sidebyside,lefthand width=1.5cm]
+    \includegraphics[scale=0.25]{danger.pdf}\tcblower {\bf\textcolor{red-800}{ATTENTION!}} This is NOT an official package from the ISO (International Organization for Standardization). All signs are taken from Wikipedia.
+\end{tcolorbox}
 
-\noindent{\large \textbf{NOTE}}
+\begin{tcolorbox}[leftrule=3mm,colback=red-200,colframe=red-800,lower separated=false,sidebyside,lefthand width=1.5cm]
+    \includegraphics[scale=0.25]{danger.pdf}\tcblower {\bf\textcolor{red-800}{ATTENTION!}} If you experience problems (e.g. on Windows) with this package, it may be due to \textit{isosigns} not finding the pdfs properly. Please use the workaround in section~\ref{sec:issue}.
+\end{tcolorbox}\vspace{10mm}
 
-\noindent This is NOT an official package from the ISO. All signs are taken from Wikipedia.
+\newpage
 
-\section{Dependencies}
+\section{Installation}
+
+
+
+\section{Loading the package \& Dependencies}
 
 This package has the following dependencies: \texttt{graphicx}, \texttt{xcolor}, \texttt{ifthen}, \texttt{xkeyval}
+
+
+
 
 \section{ISO Colors}
 
 Seven colors are defined which are also used to create the signs: \vspace{5mm}
 
 \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{|l|l|l|}
         \hline
-        \textbf{Name} & \textbf{Colors} \\ 
+        \textbf{Name} & \textbf{Colors} & \textbf{Hex} \\ 
         \hline
-        Caution & \cellcolor{Caution} \\
-        Warning & \cellcolor{Warning} \\
-        Prohibition & \cellcolor{Prohibition} \\
-        Mandatory & \cellcolor{Mandatory} \\
-        Rescue & \cellcolor{Rescue} \\
-        Backgrounds & \cellcolor{Backgrounds} \\
-        Smybol & \cellcolor{Symbol} \\
+        Caution & \cellcolor{Caution} & \texttt{\#F9A800} \\
+        Warning & \cellcolor{Warning} & \texttt{\#D05D29} \\
+        Prohibition & \cellcolor{Prohibition} & \texttt{\#9B2423} \\
+        Mandatory & \cellcolor{Mandatory} & \texttt{\#005387} \\
+        Rescue & \cellcolor{Rescue} & \texttt{\#237F52} \\
+        Backgrounds & \cellcolor{Backgrounds} & \texttt{\#ECECE7} \\
+        Smybol & \cellcolor{Symbol} & \texttt{\#2B2B2C} \\
         \hline
 \end{tabular}\vspace{5mm}
 
@@ -100,7 +170,7 @@ Seven colors are defined which are also used to create the signs: \vspace{5mm}
 
 \noindent The command to access a sign is: 
 
-\begin{tcolorbox}
+\begin{tcolorbox}[colback=gray-200]
     \vspace{3mm}
     \begin{verbatim}
     \Isosign{<Letter><Number>}
@@ -111,7 +181,7 @@ Seven colors are defined which are also used to create the signs: \vspace{5mm}
 \noindent This command constructs a path to a sign in your \TeX Live / Mik\TeX / \ldots $\;$ installation. 
 To display a sign, use the following code:
 
-\begin{tcolorbox}
+\begin{tcolorbox}[colback=gray-200]
     \vspace{3mm}
     \begin{verbatim}
     %%% Example file   
@@ -133,13 +203,13 @@ To display a sign, use the following code:
 
 \newpage
 
-\section{Known Issue}
+\section{Known Issue}\label{sec:issue}
 
 \noindent On some systems (mostly Windows), \TeX \hspace{1mm} is not able to find the pdfs properly. Since this is an issue that seems to exist only on certain systems and not all, please use the following
 workaround by providing the fullpath that leads to the installation directory 
 of isosafety. This can be done by supplying it through the \textbf{fullpath}-option:
 
-\begin{tcolorbox}
+\begin{tcolorbox}[colback=gray-200]
     \vspace{3mm}
     \begin{verbatim}
     %%% Example file   
