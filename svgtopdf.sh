@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-input_folder="./isosafety/images-svg/"
-output_folder="./isosafety/images-pdf/"
+input_folder="./isosigns/tex/iso7001/"
+output_folder="./isosigns/tex/iso7001/"
 
 
 mkdir -p "$output_folder"

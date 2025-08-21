@@ -110,14 +110,38 @@
 
 \section{Installation}
 
+The package is included in \TeX Live and Mik\TeX. If you would like to install it manually, please download the package from GitHub (\href{https://github.com/BenSt099/isosigns/releases}{\textcolor{blue-700}{https://github.com/BenSt099/isosigns/releases}}).
+After that, please unzip the package and put it into the directory, where your distribution puts its packages, e.g. for \TeX Live 2024 (Windows) you would put the package into this folder:
 
+\begin{verbatim}
+    C:\texlive\2024\texmf-dist\tex\latex\
+\end{verbatim}
+
+\noindent After this step, there should be a folder with path: 
+
+\begin{verbatim}
+    C:\texlive\2023\texmf-dist\tex\latex\isosigns\
+\end{verbatim}
+in which a file 
+
+\begin{verbatim}
+    isosigns.sty
+\end{verbatim} 
+and several folders should reside. You can verify your installation by trying it out.
 
 \section{Loading the package \& Dependencies}
 
-This package has the following dependencies: \texttt{graphicx}, \texttt{xcolor}, \texttt{ifthen}, \texttt{xkeyval}
+You can load the package with the following command in the preamble:
 
+\vspace{5mm}
+\begin{tcolorbox}[colback=gray-200]
+    \vspace{3mm}
+    \begin{verbatim}
+    \usepackage{isosigns}
+    \end{verbatim}    
+\end{tcolorbox}\vspace{5mm}
 
-
+\noindent This package has the following dependencies: \texttt{graphicx}, \texttt{xcolor}, \texttt{ifthen}, \texttt{xkeyval}
 
 \section{ISO Colors}
 
@@ -150,7 +174,7 @@ Seven colors are defined which are also used to create the signs: \vspace{5mm}
 
 \newpage
 
-\section{ISO Signs}
+\section{ISO Signs (standard 7010)}
 
 \noindent This section deals with the construction of signs. To begin with, each sign is placed in a category, has a letter and a number: \vspace{5mm}
 
@@ -173,7 +197,7 @@ Seven colors are defined which are also used to create the signs: \vspace{5mm}
 \begin{tcolorbox}[colback=gray-200]
     \vspace{3mm}
     \begin{verbatim}
-    \Isosign{<Letter><Number>}
+    \Isosign7010{<Letter><Number>}
     \end{verbatim}    
 \end{tcolorbox}
 \vspace{5mm}
@@ -187,15 +211,262 @@ To display a sign, use the following code:
     %%% Example file   
     \documentclass{article}
     
-        \usepackage{isosafety}
-
-        \usepackage{graphicx}
+        \usepackage{isosigns}
 
     \begin{document}
 
-            \includegraphics{\Isosign{F001}}
+            \includegraphics{\Isosign7010{F001}}
 
-            \includegraphics[scale=2]{\Isosign{P074}}
+            \includegraphics[scale=2]{\Isosign7010{P074}}
+
+    \end{document}
+    \end{verbatim}    
+\end{tcolorbox}
+
+\begin{center}
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV003.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV004.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV009.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV010.pdf}& \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV011.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV012.pdf} \\
+        \texttt{CV003} & \texttt{CV004} & \texttt{CV009} & \texttt{CV010} & \texttt{CV011} & \texttt{CV012} \\
+        
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV013.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV027.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV028.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV029.pdf}& \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV064.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_CV067.pdf} \\
+        \texttt{CV013} & \texttt{CV027} & \texttt{CV028} & \texttt{CV029} & \texttt{CV064} & \texttt{CV067} \\
+        
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E001.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E002.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E003.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E004.pdf}& \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E007.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E008.pdf} \\
+        \texttt{E001} & \texttt{E002} & \texttt{E003} & \texttt{E004} & \texttt{E007} & \texttt{E008} \\
+        
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E007.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E008.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E009.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E010.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E011.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E012.pdf} \\
+        \texttt{E007} & \texttt{E008} & \texttt{E009} & \texttt{E010} & \texttt{E011} & \texttt{E012} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E013.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E014.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E015.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E016.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E017.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E018.pdf} \\
+        \texttt{E013} & \texttt{E014} & \texttt{E015} & \texttt{E016} & \texttt{E017} & \texttt{E018} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E019.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E020.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E021.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E022.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E023.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E024.pdf} \\
+        \texttt{E019} & \texttt{E020} & \texttt{E021} & \texttt{E022} & \texttt{E023} & \texttt{E024} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E025.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E026.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E027.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E028.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E029.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E030.pdf} \\
+        \texttt{E025} & \texttt{E026} & \texttt{E027} & \texttt{E028} & \texttt{E029} & \texttt{E030} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E031.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E032.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E033.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E034.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E035.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E036.pdf} \\
+        \texttt{E031} & \texttt{E032} & \texttt{E033} & \texttt{E034} & \texttt{E035} & \texttt{E036} \\
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E037.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E038.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E039.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E040.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E041.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E042.pdf} \\
+        \texttt{E037} & \texttt{E038} & \texttt{E039} & \texttt{E040} & \texttt{E041} & \texttt{E042} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E043.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E044.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E045.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E046.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E047.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E048.pdf} \\
+        \texttt{E043} & \texttt{E044} & \texttt{E045} & \texttt{E046} & \texttt{E047} & \texttt{E048} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E049.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E050.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E051.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E052.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E053.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E054.pdf} \\
+        \texttt{E049} & \texttt{E050} & \texttt{E051} & \texttt{E052} & \texttt{E053} & \texttt{E054} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E055.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E056.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E057.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E058.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E059.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E060.pdf} \\
+        \texttt{E055} & \texttt{E056} & \texttt{E057} & \texttt{E058} & \texttt{E059} & \texttt{E060} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E061.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E062.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E063.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E064.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E065.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E067.pdf}  \\
+        \texttt{E061} & \texttt{E062} & \texttt{E063} & \texttt{E064} & \texttt{E065} & \texttt{E067} \\
+
+        \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E068.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E069.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/ISO_7010_E070.pdf} & \\
+        \texttt{E068} & \texttt{E069} & \texttt{E070} & \\
+
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F001.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F002.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F003.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F004.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F005.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F006.pdf} \\
+        \texttt{F001} & \texttt{F002} & \texttt{F003} & \texttt{F004} & \texttt{F005} & \texttt{F006} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F007.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F008.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F009.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F010.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F011.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F012.pdf} \\
+        \texttt{F007} & \texttt{F008} & \texttt{F009} & \texttt{F010} & \texttt{F011} & \texttt{F012} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F013.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F014.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F015.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F016.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F017.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F018.pdf} \\
+        \texttt{F013} & \texttt{F014} & \texttt{F015} & \texttt{F016} & \texttt{F017} & \texttt{F018} \\
+
+        \includegraphics[scale=0.4]{../tex/iso7010/ISO_7010_F019.pdf} \\
+        \texttt{F019} \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M001.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M002.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M003.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M004.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M005.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M006.pdf} \\
+        \texttt{M001} & \texttt{M002} & \texttt{M003} & \texttt{M004} & \texttt{M005} & \texttt{M006} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M007.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M008.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M009.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M010.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M011.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M012.pdf} \\
+        \texttt{M007} & \texttt{M008} & \texttt{M009} & \texttt{M010} & \texttt{M011} & \texttt{M012} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M013.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M014.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M015.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M016.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M017.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M018.pdf} \\
+        \texttt{M013} & \texttt{M014} & \texttt{M015} & \texttt{M016} & \texttt{M017} & \texttt{M018} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M019.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M020.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M021.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M022.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M023.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M024.pdf} \\
+        \texttt{M019} & \texttt{M020} & \texttt{M021} & \texttt{M022} & \texttt{M023} & \texttt{M024} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M025.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M026.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M027.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M028.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M029.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M030.pdf} \\
+        \texttt{M025} & \texttt{M026} & \texttt{M027} & \texttt{M028} & \texttt{M029} & \texttt{M030} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M031.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M032.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M033.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M034.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M035.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M036.pdf} \\
+        \texttt{M031} & \texttt{M032} & \texttt{M033} & \texttt{M034} & \texttt{M035} & \texttt{M036} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M037.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M038.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M039.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M040.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M041.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M042.pdf} \\
+        \texttt{M037} & \texttt{M038} & \texttt{M039} & \texttt{M040} & \texttt{M041} & \texttt{M042} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M043.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M044.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M045.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M046.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M047.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M048.pdf} \\
+        \texttt{M043} & \texttt{M044} & \texttt{M045} & \texttt{M046} & \texttt{M047} & \texttt{M048} \\
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M049.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M050.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M051.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M052.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M053.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M054.pdf} \\
+        \texttt{M049} & \texttt{M050} & \texttt{M051} & \texttt{M052} & \texttt{M053} & \texttt{M054} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M055.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M056.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M057.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M058.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M059.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_M060.pdf} \\
+        \texttt{M055} & \texttt{M056} & \texttt{M057} & \texttt{M058} & \texttt{M059} & \texttt{M060} \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P001.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P002.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P003.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P004.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P005.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P006.pdf} \\
+        \texttt{P001} & \texttt{P002} & \texttt{P003} & \texttt{P004} & \texttt{P005} & \texttt{P006} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P007.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P008.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P009.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P010.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P011.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P012.pdf} \\
+        \texttt{P007} & \texttt{P008} & \texttt{P009} & \texttt{P010} & \texttt{P011} & \texttt{P012} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P013.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P014.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P015.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P016.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P017.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P018.pdf} \\
+        \texttt{P013} & \texttt{P014} & \texttt{P015} & \texttt{P016} & \texttt{P017} & \texttt{P018} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P019.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P020.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P021.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P022.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P023.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P024.pdf} \\
+        \texttt{P019} & \texttt{P020} & \texttt{P021} & \texttt{P022} & \texttt{P023} & \texttt{P024} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P025.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P026.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P027.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P028.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P029.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P030.pdf} \\
+        \texttt{P025} & \texttt{P026} & \texttt{P027} & \texttt{P028} & \texttt{P029} & \texttt{P030} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P031.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P032.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P033.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P034.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P035.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P036.pdf} \\
+        \texttt{P031} & \texttt{P032} & \texttt{P033} & \texttt{P034} & \texttt{P035} & \texttt{P036} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P037.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P038.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P039.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P040.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P041.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P042.pdf} \\
+        \texttt{P037} & \texttt{P038} & \texttt{P039} & \texttt{P040} & \texttt{P041} & \texttt{P042} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P043.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P044.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P045.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P046.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P047.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P048.pdf} \\
+        \texttt{P043} & \texttt{P044} & \texttt{P045} & \texttt{P046} & \texttt{P047} & \texttt{P048} \\
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P049.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P050.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P051.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P052.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P053.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P054.pdf} \\
+        \texttt{P049} & \texttt{P050} & \texttt{P051} & \texttt{P052} & \texttt{P053} & \texttt{P054} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P055.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P056.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P057.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P058.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P059.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P060.pdf} \\
+        \texttt{P055} & \texttt{P056} & \texttt{P057} & \texttt{P058} & \texttt{P059} & \texttt{P060} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P061.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P062.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P063.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P064.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P065.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P066.pdf} \\
+        \texttt{P061} & \texttt{P062} & \texttt{P063} & \texttt{P064} & \texttt{P065} & \texttt{P066} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P067.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P068.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P069.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P070.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P071.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P072.pdf} \\
+        \texttt{P067} & \texttt{P068} & \texttt{P069} & \texttt{P070} & \texttt{P071} & \texttt{P072} \\
+
+        \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P073.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/ISO_7010_P074.pdf} \\
+        \texttt{P073} & \texttt{P074} \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W001.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W002.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W003.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W004.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W005.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W006.pdf} \\
+        \texttt{W001} & \texttt{W002} & \texttt{W003} & \texttt{W004} & \texttt{W005} & \texttt{W006} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W007.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W008.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W009.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W010.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W011.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W012.pdf} \\
+        \texttt{W007} & \texttt{W008} & \texttt{W009} & \texttt{W010} & \texttt{W011} & \texttt{W012} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W013.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W014.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W015.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W016.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W017.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W018.pdf} \\
+        \texttt{W013} & \texttt{W014} & \texttt{W015} & \texttt{W016} & \texttt{W017} & \texttt{W018} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W019.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W020.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W021.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W022.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W023.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W024.pdf} \\
+        \texttt{W019} & \texttt{W020} & \texttt{W021} & \texttt{W022} & \texttt{W023} & \texttt{W024} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W025.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W026.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W027.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W028.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W029.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W030.pdf} \\
+        \texttt{W025} & \texttt{W026} & \texttt{W027} & \texttt{W028} & \texttt{W029} & \texttt{W030} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W031.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W032.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W033.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W034.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W035.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W036.pdf} \\
+        \texttt{W031} & \texttt{W032} & \texttt{W033} & \texttt{W034} & \texttt{W035} & \texttt{W036} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W037.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W038.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W039.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W040.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W041.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W042.pdf} \\
+        \texttt{W037} & \texttt{W038} & \texttt{W039} & \texttt{W040} & \texttt{W041} & \texttt{W042} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W043.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W044.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W045.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W046.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W047.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W048.pdf} \\
+        \texttt{W043} & \texttt{W044} & \texttt{W045} & \texttt{W046} & \texttt{W047} & \texttt{W048} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W049.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W050.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W051.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W052.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W053.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W054.pdf} \\
+        \texttt{W049} & \texttt{W050} & \texttt{W051} & \texttt{W052} & \texttt{W053} & \texttt{W054} \\
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W055.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W056.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W057.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W058.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W059.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W060.pdf} \\
+        \texttt{W055} & \texttt{W056} & \texttt{W057} & \texttt{W058} & \texttt{W059} & \texttt{W060} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W061.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W062.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W063.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W064.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W065.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W066.pdf} \\
+        \texttt{W061} & \texttt{W062} & \texttt{W063} & \texttt{W064} & \texttt{W065} & \texttt{W066} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W067.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W068.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W069.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W070.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W071.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W072.pdf} \\
+        \texttt{W067} & \texttt{W068} & \texttt{W069} & \texttt{W070} & \texttt{W071} & \texttt{W072} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W073.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W074.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W075.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W076.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W077.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W078.pdf} \\
+        \texttt{W073} & \texttt{W074} & \texttt{W075} & \texttt{W076} & \texttt{W077} & \texttt{W078} \\
+
+        \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W079.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/ISO_7010_W080.pdf} \\
+        \texttt{W079} & \texttt{W080} \\
+        \hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section{ISO Signs (standard 7001)}
+
+\noindent This section deals with the construction of signs. To begin with, each sign is placed in a category, has a letter and a number: \vspace{5mm}
+
+\renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lll}
+        \hline
+        Category & Letter(s) & Numbers \\ 
+        \hline
+        Accessibility & AC & (001 - 023) \\
+        Public facilities & PF & (001 - 005, 007 - 021, 023 - 030, 032 - 034, 036, 037, 043, 044, \\
+        & & 050, 054, 062 - 070, 074 - 082) \\
+        Transportation facilities & TF & (001 - 040, 042 - 044) \\
+        Behaviour of the public & BP & (001 - 019) \\
+        Commercial facilities & CF & (001 - 022) \\
+        Tourism, culture and heritage & TC & (001 - 018) \\
+        Sporting activities & SA & (001 - 004) \\
+        \hline
+\end{tabular}\vspace{5mm}
+
+\noindent The command to access a sign is: 
+
+\begin{tcolorbox}[colback=gray-200]
+    \vspace{3mm}
+    \begin{verbatim}
+    \Isosign7001{<Letter><Number>}
+    \end{verbatim}    
+\end{tcolorbox}
+\vspace{5mm}
+
+\noindent This command constructs a path to a sign in your \TeX Live / Mik\TeX / \ldots $\;$ installation. 
+To display a sign, use the following code:
+
+\begin{tcolorbox}[colback=gray-200]
+    \vspace{3mm}
+    \begin{verbatim}
+    %%% Example file   
+    \documentclass{article}
+    
+        \usepackage{isosigns}
+
+    \begin{document}
+
+            \includegraphics{\Isosign7001{AC001}}
+
+            \includegraphics[scale=2]{\Isosign7001{PF024}}
 
     \end{document}
     \end{verbatim}    
@@ -217,8 +488,6 @@ of isosafety. This can be done by supplying it through the \textbf{fullpath}-opt
     
                                 % example path
         \usepackage[ fullpath = /texlive/2024/texmf-dist/tex/latex/isosafety ]{isosafety}
-
-        \usepackage{graphicx}
 
     \begin{document}
 
@@ -243,6 +512,6 @@ of isosafety. This can be done by supplying it through the \textbf{fullpath}-opt
 
 \noindent\textbf{NOTE}: The last directory in the path \textit{does not} end with a foreslash (just like in the example). \\
 
-\noindent\textbf{NOTE}: For a complete overview of the available signs, take a look at \href{https://en.wikipedia.org/wiki/ISO_7010}{Wikipedia}.
+\noindent\textbf{NOTE}: For more information about the signs and standards, take a look at \href{https://en.wikipedia.org/wiki/ISO_7010}{https://en.wikipedia.org/wiki/ISO\_7010}.
 
 \end{document}
