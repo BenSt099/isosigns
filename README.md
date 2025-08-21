@@ -5,13 +5,15 @@
 ![Static Badge](https://img.shields.io/badge/Size-%3C2%20MB-red)
 ![Static Badge](https://img.shields.io/badge/Maintained-Yes-success)
 
+## Attention
+
+The older version of this package was called "isosafety" and is no longer supported. Moreover, the versions of isosafety (v1.1 and v1.2) both contain bugs.
+
 ## Documentation
 
 The documentation can be viewed [here](https://github.com/BenSt099/isosigns/blob/main/isosigns/doc/isosigns-docs.pdf).
 
 ## Known Issues
-
-Please make sure you have the latest version of this package installed on your system (currently __v1.4__) since both v1.1 and v1.2 contain bugs.
 
 If Latex tells you that it does not find any pdf-files, please provide a full path to the package on your system via the `fullpath`-option:
 
