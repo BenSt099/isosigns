@@ -12,7 +12,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesPackage{isosigns}
-[2025/08/21 v2 ISO Safety Colors And Signs]
+[2025/08/22 v2 ISO Safety Colors And Signs]
 
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
@@ -31,21 +31,21 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\isosafetypath}{false}
-\DeclareOptionX{fullpath}{\renewcommand{\isosafetypath}{#1}}
+\newcommand{\isosignspath}{false}
+\DeclareOptionX{fullpath}{\renewcommand{\isosignspath}{#1}}
 \ProcessOptionsX\relax
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\equal{\isosafetypath}{false}}
+\ifthenelse{\equal{\isosignspath}{false}}
 {\newcommand{\Isosign}[1]{/iso7010/ISO_7010_#1.pdf}}
-{\newcommand{\Isosign}[1]{\isosafetypath /iso7010/ISO_7010_#1.pdf}}
+{\newcommand{\Isosign}[1]{\isosignspath /iso7010/ISO_7010_#1.pdf}}
 
-\ifthenelse{\equal{\isosafetypath}{false}}
+\ifthenelse{\equal{\isosignspath}{false}}
 {\newcommand{\Isosignpi}[1]{/iso7001/ISO_7001_PI_#1.pdf}}
-{\newcommand{\Isosignpi}[1]{\isosafetypath /iso7001/ISO_7001_PI_#1.pdf}}
+{\newcommand{\Isosignpi}[1]{\isosignspath /iso7001/ISO_7001_PI_#1.pdf}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \endinput
 %%
-%% End of file `isosafety.sty'.
+%% End of file `isosigns.sty'.
