@@ -4,7 +4,7 @@ isosigns is a LaTeX package that contains safety colors (ISO 3864), safety signs
 
 Maintainer: BenSt099 (https://github.com/BenSt099/isosigns)
 
-Version 2
+Version 2.1
 
 License: LPPL 1.3c
 

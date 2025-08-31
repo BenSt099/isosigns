@@ -46,9 +46,9 @@
 \tcbset{colback=logocolor,colframe=logocolordark}
 
 \begin{flushright}
-\begin{tcolorbox}[leftrule=3mm,arc=0mm,width=4.5cm]
+\begin{tcolorbox}[leftrule=3mm,arc=0mm,width=4.9cm]
 \begin{center}
-{\Large\textcolor{white}{\it\bf VERSION 2}}
+{\Large\textcolor{white}{\it\bf VERSION 2.1}}
 \end{center}
 \end{tcolorbox}
 \end{flushright}
@@ -56,7 +56,7 @@
 \begin{flushright}
 \begin{tcolorbox}[leftrule=3mm,arc=0mm,width=6.5cm]
 \begin{center}
-{\Large\textcolor{white}{\it\bf AUGUST 22, 2025}}
+{\Large\textcolor{white}{\it\bf AUGUST 31, 2025}}
 \end{center}
 \end{tcolorbox}
 \end{flushright}
@@ -85,7 +85,7 @@
     \begin{tcolorbox}[colback=white,colframe=gray-700, width=5.5cm,halign=center,boxrule=0.2mm]
         {\Large The {\sffamily isosigns} package}
 
-        Manual for version 2
+        Manual for version 2.1
     \end{tcolorbox}\vspace{15mm}
 
     \href{https://www.ctan.org/pkg/isosigns}{\textcolor{blue-700}{https://www.ctan.org/pkg/isosigns}}\vspace{6mm}
@@ -102,32 +102,33 @@
     \includegraphics[scale=0.25]{danger.pdf}\tcblower {\bf\textcolor{red-800}{ATTENTION!}} This is NOT an official package from the ISO (International Organization for Standardization). All signs are taken from Wikipedia.
 \end{tcolorbox}
 
-\begin{tcolorbox}[leftrule=3mm,colback=red-200,colframe=red-800,lower separated=false,sidebyside,lefthand width=1.5cm]
-    \includegraphics[scale=0.25]{danger.pdf}\tcblower {\bf\textcolor{red-800}{ATTENTION!}} If you experience problems (e.g. on Windows) with this package, it may be due to \textit{isosigns} not finding the pdfs properly. Please use the workaround in section~\ref{sec:issue}.
-\end{tcolorbox}\vspace{10mm}
-
 \newpage
 
 \section{Installation}
 
-The package is included in \TeX Live and Mik\TeX. If you would like to install it manually, please download the package from GitHub (\href{https://github.com/BenSt099/isosigns/releases}{\textcolor{blue-700}{https://github.com/BenSt099/isosigns/releases}}).
+The package is included in \TeX Live and Mik\TeX. You can also install it via the package managers that are included in your distribution.
+If you would like to install it manually, please download the package from GitHub (\href{https://github.com/BenSt099/isosigns/releases}{\textcolor{blue-700}{https://github.com/BenSt099/isosigns/releases}}).
 After that, please unzip the package and put it into the directory, where your distribution puts its packages, e.g. for \TeX Live 2024 (Windows) you would put the package into this folder:
 
 \begin{verbatim}
     C:\texlive\2024\texmf-dist\tex\latex\
-\end{verbatim}
+\end{verbatim}\vspace{2mm}
 
 \noindent After this step, there should be a folder with path: 
 
 \begin{verbatim}
-    C:\texlive\2023\texmf-dist\tex\latex\isosigns\
-\end{verbatim}
-in which a file 
+    C:\texlive\2024\texmf-dist\tex\latex\isosigns\
+\end{verbatim}\vspace{2mm}
+
+\noindent in which the two files 
 
 \begin{verbatim}
     isosigns.sty
+    isosigns_complete.pdf
 \end{verbatim} 
-and several folders should reside. You can verify your installation by trying it out.
+and several folders should reside. After that, you have to update the name database.
+Depending on your distribution, this could be achieved with e.g.: \texttt{mktexlsr}.
+You can verify your installation by trying it out.
 
 \section{Loading the package \& Dependencies}
 
@@ -141,7 +142,7 @@ You can load the package with the following command in the preamble:
     \end{verbatim}    
 \end{tcolorbox}\vspace{5mm}
 
-\noindent This package has the following dependencies: \texttt{graphicx}, \texttt{xcolor}, \texttt{ifthen}, \texttt{xkeyval}
+\noindent This package has the following dependencies: \texttt{graphicx}
 
 \section{ISO Colors (standard 3864)}
 
@@ -174,10 +175,559 @@ Seven colors are defined which are also used to create the signs: \vspace{5mm}
 
 \newpage
 
+\section{Usage}
+
+\noindent This section deals with the construction of signs. Every sign has a number that is highlighted in red in the tables below.
+The sign \texttt{CV003} e.g. has the number \colorbox{red-200}{\texttt{\bf 1}}. You can use the following command to include the sign in your pdf:
+\vspace{5mm}
+
+\begin{tcolorbox}[colback=gray-200]
+    \vspace{3mm}
+    \begin{verbatim}
+    \Isosign[<Optional>]{<Number>}
+    \end{verbatim}    
+\end{tcolorbox}
+\vspace{5mm}
+
+\noindent The command behaves like \texttt{includegraphics}. Therefore, if you wish to change angle,
+scale or other parameters, use \texttt{<>}.
+Below is an example:\vspace{5mm}
+
+\begin{tcolorbox}[colback=gray-200]
+    \vspace{3mm}
+    \begin{verbatim}
+    %%% Example file   
+    \documentclass{article}
+    
+        \usepackage{isosigns}
+
+    \begin{document}
+
+            \Isosign{14} 
+
+            \Isosign[scale=1.2,angle=90]{29} 
+
+    \end{document}
+    \end{verbatim}    
+\end{tcolorbox}\newpage
+
 \section{ISO Signs (standard 7010)}
 
-\noindent This section deals with the construction of signs. To begin with, each sign is placed in a category, has a letter and a number: \vspace{5mm}
+\noindent\textbf{NOTE}: For more information about the signs and standards, take a look at \href{https://en.wikipedia.org/wiki/ISO_7010}{\textcolor{blue-700}{https://en.wikipedia.org/wiki/ISO\_7010}}.
 
+\begin{center}
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.2, page=1]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=2]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=3]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=4]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=5]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=6]{../tex/isosigns_complete.pdf} \\
+        \texttt{CV003} & \texttt{CV004} & \texttt{CV009} & \texttt{CV010} & \texttt{CV011} & \texttt{CV012} \\
+        \colorbox{red-200}{\texttt{\bf -1-}} & \colorbox{red-200}{\texttt{\bf -2-}} & \colorbox{red-200}{\texttt{\bf -3-}} & \colorbox{red-200}{\texttt{\bf -4-}} & \colorbox{red-200}{\texttt{\bf -5-}} & \colorbox{red-200}{\texttt{\bf -6-}} \\
+        \hline
+
+        \includegraphics[scale=0.2, page=7]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=8]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=9]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=10]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=11]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=12]{../tex/isosigns_complete.pdf} \\
+        \texttt{CV013} & \texttt{CV027} & \texttt{CV028} & \texttt{CV029} & \texttt{CV064} & \texttt{CV067} \\
+        \colorbox{red-200}{\texttt{\bf -7-}} & \colorbox{red-200}{\texttt{\bf -8-}} & \colorbox{red-200}{\texttt{\bf -9-}} & \colorbox{red-200}{\texttt{\bf -10-}} & \colorbox{red-200}{\texttt{\bf -11-}} & \colorbox{red-200}{\texttt{\bf -12-}} \\
+        \hline
+
+        \includegraphics[scale=0.2, page=13]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=14]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=15]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=16]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=17]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=18]{../tex/isosigns_complete.pdf} \\
+        \texttt{E001} & \texttt{E002} & \texttt{E003} & \texttt{E004} & \texttt{E007} & \texttt{E008} \\
+        \colorbox{red-200}{\texttt{\bf -13-}} & \colorbox{red-200}{\texttt{\bf -14-}} & \colorbox{red-200}{\texttt{\bf -15-}} & \colorbox{red-200}{\texttt{\bf -16-}} & \colorbox{red-200}{\texttt{\bf -17-}} & \colorbox{red-200}{\texttt{\bf -18-}} \\
+        \hline
+        
+        \includegraphics[scale=0.2, page=19]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=20]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=21]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=22]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=23]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=24]{../tex/isosigns_complete.pdf} \\
+        \texttt{E007} & \texttt{E008} & \texttt{E009} & \texttt{E010} & \texttt{E011} & \texttt{E012} \\
+        \colorbox{red-200}{\texttt{\bf -19-}} & \colorbox{red-200}{\texttt{\bf -20-}} & \colorbox{red-200}{\texttt{\bf -21-}} & \colorbox{red-200}{\texttt{\bf -22-}} & \colorbox{red-200}{\texttt{\bf -23-}} & \colorbox{red-200}{\texttt{\bf -24-}} \\
+        \hline
+        
+        \includegraphics[scale=0.2, page=25]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=26]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=27]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=28]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=29]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=30]{../tex/isosigns_complete.pdf} \\
+        \texttt{E013} & \texttt{E014} & \texttt{E015} & \texttt{E016} & \texttt{E017} & \texttt{E018} \\
+        \colorbox{red-200}{\texttt{\bf -25-}} & \colorbox{red-200}{\texttt{\bf -26-}} & \colorbox{red-200}{\texttt{\bf -27-}} & \colorbox{red-200}{\texttt{\bf -28-}} & \colorbox{red-200}{\texttt{\bf -29-}} & \colorbox{red-200}{\texttt{\bf -30-}} \\
+        \hline
+        
+        \includegraphics[scale=0.2, page=31]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=32]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=33]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=34]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=35]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=36]{../tex/isosigns_complete.pdf} \\
+        \texttt{E019} & \texttt{E020} & \texttt{E021} & \texttt{E022} & \texttt{E023} & \texttt{E024} \\
+        \colorbox{red-200}{\texttt{\bf -31-}} & \colorbox{red-200}{\texttt{\bf -32-}} & \colorbox{red-200}{\texttt{\bf -33-}} & \colorbox{red-200}{\texttt{\bf -34-}} & \colorbox{red-200}{\texttt{\bf -35-}} & \colorbox{red-200}{\texttt{\bf -36-}} \\
+        \hline
+        
+        \includegraphics[scale=0.2, page=37]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=38]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=39]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=40]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=41]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=42]{../tex/isosigns_complete.pdf} \\
+        \texttt{E025} & \texttt{E026} & \texttt{E027} & \texttt{E028} & \texttt{E029} & \texttt{E030} \\
+        \colorbox{red-200}{\texttt{\bf -37-}} & \colorbox{red-200}{\texttt{\bf -38-}} & \colorbox{red-200}{\texttt{\bf -39-}} & \colorbox{red-200}{\texttt{\bf -40-}} & \colorbox{red-200}{\texttt{\bf -41-}} & \colorbox{red-200}{\texttt{\bf -42-}} \\
+        \hline
+\end{tabular}\newpage    
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.2, page=43]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=44]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=45]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=46]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=47]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=48]{../tex/isosigns_complete.pdf} \\
+        \texttt{E031} & \texttt{E032} & \texttt{E033} & \texttt{E034} & \texttt{E035} & \texttt{E036} \\
+        \colorbox{red-200}{\texttt{\bf -43-}} & \colorbox{red-200}{\texttt{\bf -44-}} & \colorbox{red-200}{\texttt{\bf -45-}} & \colorbox{red-200}{\texttt{\bf -46-}} & \colorbox{red-200}{\texttt{\bf -47-}} & \colorbox{red-200}{\texttt{\bf -48-}} \\
+        \hline
+
+        \includegraphics[scale=0.2, page=49]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=50]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=51]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=52]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=53]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=54]{../tex/isosigns_complete.pdf} \\
+        \texttt{E037} & \texttt{E038} & \texttt{E039} & \texttt{E040} & \texttt{E041} & \texttt{E042} \\
+        \colorbox{red-200}{\texttt{\bf -49-}} & \colorbox{red-200}{\texttt{\bf -50-}} & \colorbox{red-200}{\texttt{\bf -51-}} & \colorbox{red-200}{\texttt{\bf -52-}} & \colorbox{red-200}{\texttt{\bf -53-}} & \colorbox{red-200}{\texttt{\bf -54-}} \\
+        \hline
+
+        \includegraphics[scale=0.2, page=55]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=56]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=57]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=58]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=59]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=60]{../tex/isosigns_complete.pdf} \\
+        \texttt{E043} & \texttt{E044} & \texttt{E045} & \texttt{E046} & \texttt{E047} & \texttt{E048} \\
+        \colorbox{red-200}{\texttt{\bf -55-}} & \colorbox{red-200}{\texttt{\bf -56-}} & \colorbox{red-200}{\texttt{\bf -57-}} & \colorbox{red-200}{\texttt{\bf -58-}} & \colorbox{red-200}{\texttt{\bf -59-}} & \colorbox{red-200}{\texttt{\bf -60-}} \\
+        \hline
+
+        \includegraphics[scale=0.2, page=61]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=62]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=63]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=64]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=65]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=66]{../tex/isosigns_complete.pdf} \\
+        \texttt{E049} & \texttt{E050} & \texttt{E051} & \texttt{E052} & \texttt{E053} & \texttt{E054} \\
+        \colorbox{red-200}{\texttt{\bf -61-}} & \colorbox{red-200}{\texttt{\bf -62-}} & \colorbox{red-200}{\texttt{\bf -63-}} & \colorbox{red-200}{\texttt{\bf -64-}} & \colorbox{red-200}{\texttt{\bf -65-}} & \colorbox{red-200}{\texttt{\bf -66-}} \\
+        \hline
+    
+        \includegraphics[scale=0.2, page=67]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=68]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=69]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=70]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=71]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=72]{../tex/isosigns_complete.pdf} \\
+        \texttt{E055} & \texttt{E056} & \texttt{E057} & \texttt{E058} & \texttt{E059} & \texttt{E060} \\
+        \colorbox{red-200}{\texttt{\bf -67-}} & \colorbox{red-200}{\texttt{\bf -68-}} & \colorbox{red-200}{\texttt{\bf -69-}} & \colorbox{red-200}{\texttt{\bf -70-}} & \colorbox{red-200}{\texttt{\bf -71-}} & \colorbox{red-200}{\texttt{\bf -72-}} \\
+        \hline
+
+        \includegraphics[scale=0.2, page=73]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=74]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=75]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=76]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=77]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.2, page=78]{../tex/isosigns_complete.pdf} \\
+        \texttt{E061} & \texttt{E062} & \texttt{E063} & \texttt{E064} & \texttt{E065} & \texttt{E067} \\
+        \colorbox{red-200}{\texttt{\bf -73-}} & \colorbox{red-200}{\texttt{\bf -74-}} & \colorbox{red-200}{\texttt{\bf -75-}} & \colorbox{red-200}{\texttt{\bf -76-}} & \colorbox{red-200}{\texttt{\bf -77-}} & \colorbox{red-200}{\texttt{\bf -78-}} \\
+        \hline
+
+        \includegraphics[scale=0.2, page=79]{../tex/isosigns_complete.pdf} & & & & & \\
+        \texttt{E068} & & & & & \\
+        \colorbox{red-200}{\texttt{\bf -79-}} & & & & & \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=80]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=81]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=82]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=83]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=84]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=85]{../tex/isosigns_complete.pdf} \\
+        \texttt{F001} & \texttt{F002} & \texttt{F003} & \texttt{F004} & \texttt{F005} & \texttt{F006} \\
+        \colorbox{red-200}{\texttt{\bf -80-}} & \colorbox{red-200}{\texttt{\bf -81-}} & \colorbox{red-200}{\texttt{\bf -82-}} & \colorbox{red-200}{\texttt{\bf -83-}} & \colorbox{red-200}{\texttt{\bf -84-}} & \colorbox{red-200}{\texttt{\bf -85-}} \\
+        \hline
+        
+        \includegraphics[scale=0.4, page=86]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=87]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=88]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=89]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=90]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=91]{../tex/isosigns_complete.pdf} \\
+        \texttt{F007} & \texttt{F008} & \texttt{F009} & \texttt{F010} & \texttt{F011} & \texttt{F012} \\
+        \colorbox{red-200}{\texttt{\bf -86-}} & \colorbox{red-200}{\texttt{\bf -87-}} & \colorbox{red-200}{\texttt{\bf -88-}} & \colorbox{red-200}{\texttt{\bf -89-}} & \colorbox{red-200}{\texttt{\bf -90-}} & \colorbox{red-200}{\texttt{\bf -91-}} \\
+        \hline
+        
+        \includegraphics[scale=0.4, page=92]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=93]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=94]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=95]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=96]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=97]{../tex/isosigns_complete.pdf} \\
+        \texttt{F013} & \texttt{F014} & \texttt{F015} & \texttt{F016} & \texttt{F017} & \texttt{F018} \\
+        \colorbox{red-200}{\texttt{\bf -92-}} & \colorbox{red-200}{\texttt{\bf -93-}} & \colorbox{red-200}{\texttt{\bf -94-}} & \colorbox{red-200}{\texttt{\bf -95-}} & \colorbox{red-200}{\texttt{\bf -96-}} & \colorbox{red-200}{\texttt{\bf -97-}} \\
+        \hline
+        
+        \includegraphics[scale=0.4, page=98]{../tex/isosigns_complete.pdf} & & & & &  \\
+        \texttt{F019} & & & & & \\
+        \colorbox{red-200}{\texttt{\bf -98-}} & & & & & \\
+        \hline
+\end{tabular}\newpage
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.3, page=99]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=100]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=101]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=102]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=103]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=104]{../tex/isosigns_complete.pdf} \\
+        \texttt{M001} & \texttt{M002} & \texttt{M003} & \texttt{M004} & \texttt{M005} & \texttt{M006} \\
+        \colorbox{red-200}{\texttt{\bf -99-}} & \colorbox{red-200}{\texttt{\bf -100-}} & \colorbox{red-200}{\texttt{\bf -101-}} & \colorbox{red-200}{\texttt{\bf -102-}} & \colorbox{red-200}{\texttt{\bf -103-}} & \colorbox{red-200}{\texttt{\bf -104-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=105]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=106]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=107]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=108]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=109]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=110]{../tex/isosigns_complete.pdf} \\
+        \texttt{M007} & \texttt{M008} & \texttt{M009} & \texttt{M010} & \texttt{M011} & \texttt{M012} \\
+        \colorbox{red-200}{\texttt{\bf -105-}} & \colorbox{red-200}{\texttt{\bf -106-}} & \colorbox{red-200}{\texttt{\bf -107-}} & \colorbox{red-200}{\texttt{\bf -108-}} & \colorbox{red-200}{\texttt{\bf -109-}} & \colorbox{red-200}{\texttt{\bf -110-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=111]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=112]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=113]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=114]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=115]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=116]{../tex/isosigns_complete.pdf} \\
+        \texttt{M013} & \texttt{M014} & \texttt{M015} & \texttt{M016} & \texttt{M017} & \texttt{M018} \\
+        \colorbox{red-200}{\texttt{\bf -111-}} & \colorbox{red-200}{\texttt{\bf -112-}} & \colorbox{red-200}{\texttt{\bf -113-}} & \colorbox{red-200}{\texttt{\bf -114-}} & \colorbox{red-200}{\texttt{\bf -115-}} & \colorbox{red-200}{\texttt{\bf -116-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=117]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=118]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=119]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=120]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=121]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=122]{../tex/isosigns_complete.pdf} \\
+        \texttt{M019} & \texttt{M020} & \texttt{M021} & \texttt{M022} & \texttt{M023} & \texttt{M024} \\
+        \colorbox{red-200}{\texttt{\bf -117-}} & \colorbox{red-200}{\texttt{\bf -118-}} & \colorbox{red-200}{\texttt{\bf -119-}} & \colorbox{red-200}{\texttt{\bf -120-}} & \colorbox{red-200}{\texttt{\bf -121-}} & \colorbox{red-200}{\texttt{\bf -122-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=123]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=124]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=125]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=126]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=127]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=128]{../tex/isosigns_complete.pdf} \\
+        \texttt{M025} & \texttt{M026} & \texttt{M027} & \texttt{M028} & \texttt{M029} & \texttt{M030} \\
+        \colorbox{red-200}{\texttt{\bf -123-}} & \colorbox{red-200}{\texttt{\bf -124-}} & \colorbox{red-200}{\texttt{\bf -125-}} & \colorbox{red-200}{\texttt{\bf -126-}} & \colorbox{red-200}{\texttt{\bf -127-}} & \colorbox{red-200}{\texttt{\bf -128-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=129]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=130]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=131]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=132]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=133]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=134]{../tex/isosigns_complete.pdf} \\
+        \texttt{M031} & \texttt{M032} & \texttt{M033} & \texttt{M034} & \texttt{M035} & \texttt{M036} \\
+        \colorbox{red-200}{\texttt{\bf -129-}} & \colorbox{red-200}{\texttt{\bf -130-}} & \colorbox{red-200}{\texttt{\bf -131-}} & \colorbox{red-200}{\texttt{\bf -132-}} & \colorbox{red-200}{\texttt{\bf -133-}} & \colorbox{red-200}{\texttt{\bf -134-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=135]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=136]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=137]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=138]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=139]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=140]{../tex/isosigns_complete.pdf} \\
+        \texttt{M037} & \texttt{M038} & \texttt{M039} & \texttt{M040} & \texttt{M041} & \texttt{M042} \\
+        \colorbox{red-200}{\texttt{\bf -135-}} & \colorbox{red-200}{\texttt{\bf -136-}} & \colorbox{red-200}{\texttt{\bf -137-}} & \colorbox{red-200}{\texttt{\bf -138-}} & \colorbox{red-200}{\texttt{\bf -139-}} & \colorbox{red-200}{\texttt{\bf -140-}} \\
+        \hline
+\end{tabular}\newpage
+
+\begin{tabular}{cccccc}   
+        \hline
+        \includegraphics[scale=0.3, page=141]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=142]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=143]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=144]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=145]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=146]{../tex/isosigns_complete.pdf} \\
+        \texttt{M043} & \texttt{M044} & \texttt{M045} & \texttt{M046} & \texttt{M047} & \texttt{M048} \\
+        \colorbox{red-200}{\texttt{\bf -141-}} & \colorbox{red-200}{\texttt{\bf -142-}} & \colorbox{red-200}{\texttt{\bf -143-}} & \colorbox{red-200}{\texttt{\bf -144-}} & \colorbox{red-200}{\texttt{\bf -145-}} & \colorbox{red-200}{\texttt{\bf -146-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=147]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=148]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=149]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=150]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=151]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=152]{../tex/isosigns_complete.pdf} \\
+        \texttt{M049} & \texttt{M050} & \texttt{M051} & \texttt{M052} & \texttt{M053} & \texttt{M054} \\
+        \colorbox{red-200}{\texttt{\bf -147-}} & \colorbox{red-200}{\texttt{\bf -148-}} & \colorbox{red-200}{\texttt{\bf -149-}} & \colorbox{red-200}{\texttt{\bf -150-}} & \colorbox{red-200}{\texttt{\bf -151-}} & \colorbox{red-200}{\texttt{\bf -152-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=153]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=154]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=155]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=156]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=157]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=158]{../tex/isosigns_complete.pdf} \\
+        \texttt{M055} & \texttt{M056} & \texttt{M057} & \texttt{M058} & \texttt{M059} & \texttt{M060} \\
+        \colorbox{red-200}{\texttt{\bf -153-}} & \colorbox{red-200}{\texttt{\bf -154-}} & \colorbox{red-200}{\texttt{\bf -155-}} & \colorbox{red-200}{\texttt{\bf -156-}} & \colorbox{red-200}{\texttt{\bf -157-}} & \colorbox{red-200}{\texttt{\bf -158-}} \\
+        \hline
+        
+        \includegraphics[scale=0.3, page=159]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=160]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=161]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=162]{../tex/isosigns_complete.pdf} & \\
+        \texttt{M061} & \texttt{M062} & \texttt{M070} & \texttt{M071} & & \\
+        \colorbox{red-200}{\texttt{\bf -159-}} & \colorbox{red-200}{\texttt{\bf -160-}} & \colorbox{red-200}{\texttt{\bf -161-}} & \colorbox{red-200}{\texttt{\bf -162-}} & \\
+        \hline
+\end{tabular}\newpage
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.3, page=163]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=164]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=165]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=166]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=167]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=168]{../tex/isosigns_complete.pdf} \\
+        \texttt{P001} & \texttt{P002} & \texttt{P003} & \texttt{P004} & \texttt{P005} & \texttt{P006} \\
+        \colorbox{red-200}{\texttt{\bf -163-}} & \colorbox{red-200}{\texttt{\bf -164-}} & \colorbox{red-200}{\texttt{\bf -165-}} & \colorbox{red-200}{\texttt{\bf -166-}} & \colorbox{red-200}{\texttt{\bf -167-}} & \colorbox{red-200}{\texttt{\bf -168-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=169]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=170]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=171]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=172]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=173]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=174]{../tex/isosigns_complete.pdf} \\
+        \texttt{P007} & \texttt{P008} & \texttt{P009} & \texttt{P010} & \texttt{P011} & \texttt{P012} \\
+        \colorbox{red-200}{\texttt{\bf -169-}} & \colorbox{red-200}{\texttt{\bf -170-}} & \colorbox{red-200}{\texttt{\bf -171-}} & \colorbox{red-200}{\texttt{\bf -172-}} & \colorbox{red-200}{\texttt{\bf -173-}} & \colorbox{red-200}{\texttt{\bf -174-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=175]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=176]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=177]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=178]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=179]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=180]{../tex/isosigns_complete.pdf} \\
+        \texttt{P013} & \texttt{P014} & \texttt{P015} & \texttt{P016} & \texttt{P017} & \texttt{P018} \\
+        \colorbox{red-200}{\texttt{\bf -175-}} & \colorbox{red-200}{\texttt{\bf -176-}} & \colorbox{red-200}{\texttt{\bf -177-}} & \colorbox{red-200}{\texttt{\bf -178-}} & \colorbox{red-200}{\texttt{\bf -179-}} & \colorbox{red-200}{\texttt{\bf -180-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=181]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=182]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=183]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=184]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=185]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=186]{../tex/isosigns_complete.pdf} \\
+        \texttt{P019} & \texttt{P020} & \texttt{P021} & \texttt{P022} & \texttt{P023} & \texttt{P024} \\
+        \colorbox{red-200}{\texttt{\bf -181-}} & \colorbox{red-200}{\texttt{\bf -182-}} & \colorbox{red-200}{\texttt{\bf -183-}} & \colorbox{red-200}{\texttt{\bf -184-}} & \colorbox{red-200}{\texttt{\bf -185-}} & \colorbox{red-200}{\texttt{\bf -186-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=187]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=188]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=189]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=190]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=191]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=192]{../tex/isosigns_complete.pdf} \\
+        \texttt{P025} & \texttt{P026} & \texttt{P027} & \texttt{P028} & \texttt{P029} & \texttt{P030} \\
+        \colorbox{red-200}{\texttt{\bf -187-}} & \colorbox{red-200}{\texttt{\bf -188-}} & \colorbox{red-200}{\texttt{\bf -189-}} & \colorbox{red-200}{\texttt{\bf -190-}} & \colorbox{red-200}{\texttt{\bf -191-}} & \colorbox{red-200}{\texttt{\bf -192-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=193]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=194]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=195]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=196]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=197]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=198]{../tex/isosigns_complete.pdf} \\
+        \texttt{P031} & \texttt{P032} & \texttt{P033} & \texttt{P034} & \texttt{P035} & \texttt{P036} \\
+        \colorbox{red-200}{\texttt{\bf -193-}} & \colorbox{red-200}{\texttt{\bf -194-}} & \colorbox{red-200}{\texttt{\bf -195-}} & \colorbox{red-200}{\texttt{\bf -196-}} & \colorbox{red-200}{\texttt{\bf -197-}} & \colorbox{red-200}{\texttt{\bf -198-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=199]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=200]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=201]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=202]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=203]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=204]{../tex/isosigns_complete.pdf} \\
+        \texttt{P037} & \texttt{P038} & \texttt{P039} & \texttt{P040} & \texttt{P041} & \texttt{P042} \\
+        \colorbox{red-200}{\texttt{\bf -199-}} & \colorbox{red-200}{\texttt{\bf -200-}} & \colorbox{red-200}{\texttt{\bf -201-}} & \colorbox{red-200}{\texttt{\bf -202-}} & \colorbox{red-200}{\texttt{\bf -203-}} & \colorbox{red-200}{\texttt{\bf -204-}} \\
+        \hline
+\end{tabular}\newpage
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.3, page=205]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=206]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=207]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=208]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=209]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=210]{../tex/isosigns_complete.pdf} \\
+        \texttt{P043} & \texttt{P044} & \texttt{P045} & \texttt{P046} & \texttt{P047} & \texttt{P048} \\
+        \colorbox{red-200}{\texttt{\bf -205-}} & \colorbox{red-200}{\texttt{\bf -206-}} & \colorbox{red-200}{\texttt{\bf -207-}} & \colorbox{red-200}{\texttt{\bf -208-}} & \colorbox{red-200}{\texttt{\bf -209-}} & \colorbox{red-200}{\texttt{\bf -210-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=211]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=212]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=213]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=214]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=215]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=216]{../tex/isosigns_complete.pdf} \\
+        \texttt{P049} & \texttt{P050} & \texttt{P051} & \texttt{P052} & \texttt{P053} & \texttt{P054} \\
+        \colorbox{red-200}{\texttt{\bf -211-}} & \colorbox{red-200}{\texttt{\bf -212-}} & \colorbox{red-200}{\texttt{\bf -213-}} & \colorbox{red-200}{\texttt{\bf -214-}} & \colorbox{red-200}{\texttt{\bf -215-}} & \colorbox{red-200}{\texttt{\bf -216-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=217]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=218]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=219]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=220]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=221]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=222]{../tex/isosigns_complete.pdf} \\
+        \texttt{P055} & \texttt{P056} & \texttt{P057} & \texttt{P058} & \texttt{P059} & \texttt{P060} \\
+        \colorbox{red-200}{\texttt{\bf -217-}} & \colorbox{red-200}{\texttt{\bf -218-}} & \colorbox{red-200}{\texttt{\bf -219-}} & \colorbox{red-200}{\texttt{\bf -220-}} & \colorbox{red-200}{\texttt{\bf -221-}} & \colorbox{red-200}{\texttt{\bf -222-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=223]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=224]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=225]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=226]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=227]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=228]{../tex/isosigns_complete.pdf} \\
+        \texttt{P061} & \texttt{P062} & \texttt{P063} & \texttt{P064} & \texttt{P065} & \texttt{P066} \\
+        \colorbox{red-200}{\texttt{\bf -223-}} & \colorbox{red-200}{\texttt{\bf -224-}} & \colorbox{red-200}{\texttt{\bf -225-}} & \colorbox{red-200}{\texttt{\bf -226-}} & \colorbox{red-200}{\texttt{\bf -227-}} & \colorbox{red-200}{\texttt{\bf -228-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=229]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=230]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=231]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=232]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=233]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=234]{../tex/isosigns_complete.pdf} \\
+        \texttt{P067} & \texttt{P068} & \texttt{P069} & \texttt{P070} & \texttt{P071} & \texttt{P072} \\
+        \colorbox{red-200}{\texttt{\bf -229-}} & \colorbox{red-200}{\texttt{\bf -230-}} & \colorbox{red-200}{\texttt{\bf -231-}} & \colorbox{red-200}{\texttt{\bf -232-}} & \colorbox{red-200}{\texttt{\bf -233-}} & \colorbox{red-200}{\texttt{\bf -234-}} \\
+        \hline
+
+        \includegraphics[scale=0.3, page=235]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=236]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=237]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.3, page=238]{../tex/isosigns_complete.pdf} \\
+        \texttt{P073} & \texttt{P074} & \texttt{P075} & \texttt{P081} & & \\
+        \colorbox{red-200}{\texttt{\bf -235-}} & \colorbox{red-200}{\texttt{\bf -236-}} & \colorbox{red-200}{\texttt{\bf -237-}} & \colorbox{red-200}{\texttt{\bf -238-}} \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.1, page=239]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=240]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=241]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=242]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=243]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=244]{../tex/isosigns_complete.pdf} \\
+        \texttt{W001} & \texttt{W002} & \texttt{W003} & \texttt{W004} & \texttt{W005} & \texttt{W006} \\
+        \colorbox{red-200}{\texttt{\bf -239-}} & \colorbox{red-200}{\texttt{\bf -240-}} & \colorbox{red-200}{\texttt{\bf -241-}} & \colorbox{red-200}{\texttt{\bf -242-}} & \colorbox{red-200}{\texttt{\bf -243-}} & \colorbox{red-200}{\texttt{\bf -244-}} \\
+        \hline
+        
+        \includegraphics[scale=0.1, page=245]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=246]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=247]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=248]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=249]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=250]{../tex/isosigns_complete.pdf} \\
+        \texttt{W007} & \texttt{W008} & \texttt{W009} & \texttt{W010} & \texttt{W011} & \texttt{W012} \\
+        \colorbox{red-200}{\texttt{\bf -245-}} & \colorbox{red-200}{\texttt{\bf -246-}} & \colorbox{red-200}{\texttt{\bf -247-}} & \colorbox{red-200}{\texttt{\bf -248-}} & \colorbox{red-200}{\texttt{\bf -249-}} & \colorbox{red-200}{\texttt{\bf -250-}} \\
+        \hline
+        
+        \includegraphics[scale=0.1, page=251]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=252]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=253]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=254]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=255]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=256]{../tex/isosigns_complete.pdf} \\
+        \texttt{W013} & \texttt{W014} & \texttt{W015} & \texttt{W016} & \texttt{W017} & \texttt{W018} \\
+        \colorbox{red-200}{\texttt{\bf -251-}} & \colorbox{red-200}{\texttt{\bf -252-}} & \colorbox{red-200}{\texttt{\bf -253-}} & \colorbox{red-200}{\texttt{\bf -254-}} & \colorbox{red-200}{\texttt{\bf -255-}} & \colorbox{red-200}{\texttt{\bf -256-}} \\
+        \hline
+        
+        \includegraphics[scale=0.1, page=257]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=258]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=259]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=260]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=261]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=262]{../tex/isosigns_complete.pdf} \\
+        \texttt{W019} & \texttt{W020} & \texttt{W021} & \texttt{W022} & \texttt{W023} & \texttt{W024} \\
+        \colorbox{red-200}{\texttt{\bf -257-}} & \colorbox{red-200}{\texttt{\bf -258-}} & \colorbox{red-200}{\texttt{\bf -259-}} & \colorbox{red-200}{\texttt{\bf -260-}} & \colorbox{red-200}{\texttt{\bf -261-}} & \colorbox{red-200}{\texttt{\bf -262-}} \\
+        \hline
+        
+        \includegraphics[scale=0.1, page=263]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=264]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=265]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=266]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=267]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=268]{../tex/isosigns_complete.pdf} \\
+        \texttt{W025} & \texttt{W026} & \texttt{W027} & \texttt{W028} & \texttt{W029} & \texttt{W030} \\
+        \colorbox{red-200}{\texttt{\bf -263-}} & \colorbox{red-200}{\texttt{\bf -264-}} & \colorbox{red-200}{\texttt{\bf -265-}} & \colorbox{red-200}{\texttt{\bf -266-}} & \colorbox{red-200}{\texttt{\bf -267-}} & \colorbox{red-200}{\texttt{\bf -268-}} \\
+        \hline
+        
+        \includegraphics[scale=0.1, page=269]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=270]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=271]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=272]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=273]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=274]{../tex/isosigns_complete.pdf} \\
+        \texttt{W031} & \texttt{W032} & \texttt{W033} & \texttt{W034} & \texttt{W035} & \texttt{W036} \\
+        \colorbox{red-200}{\texttt{\bf -269-}} & \colorbox{red-200}{\texttt{\bf -270-}} & \colorbox{red-200}{\texttt{\bf -271-}} & \colorbox{red-200}{\texttt{\bf -272-}} & \colorbox{red-200}{\texttt{\bf -273-}} & \colorbox{red-200}{\texttt{\bf -274-}} \\
+        \hline
+        
+        \includegraphics[scale=0.1, page=275]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=276]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=277]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=278]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=279]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=280]{../tex/isosigns_complete.pdf} \\
+        \texttt{W037} & \texttt{W038} & \texttt{W039} & \texttt{W040} & \texttt{W041} & \texttt{W042} \\
+        \colorbox{red-200}{\texttt{\bf -275-}} & \colorbox{red-200}{\texttt{\bf -276-}} & \colorbox{red-200}{\texttt{\bf -277-}} & \colorbox{red-200}{\texttt{\bf -278-}} & \colorbox{red-200}{\texttt{\bf -279-}} & \colorbox{red-200}{\texttt{\bf -280-}} \\
+        \hline
+        
+        \includegraphics[scale=0.1, page=281]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=282]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=283]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=284]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=285]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=286]{../tex/isosigns_complete.pdf} \\
+        \texttt{W043} & \texttt{W044} & \texttt{W045} & \texttt{W046} & \texttt{W047} & \texttt{W048} \\
+        \colorbox{red-200}{\texttt{\bf -281-}} & \colorbox{red-200}{\texttt{\bf -282-}} & \colorbox{red-200}{\texttt{\bf -283-}} & \colorbox{red-200}{\texttt{\bf -284-}} & \colorbox{red-200}{\texttt{\bf -285-}} & \colorbox{red-200}{\texttt{\bf -286-}} \\
+        \hline
+        
+        \includegraphics[scale=0.1, page=287]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=288]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=289]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=290]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=291]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=292]{../tex/isosigns_complete.pdf} \\
+        \texttt{W049} & \texttt{W050} & \texttt{W051} & \texttt{W052} & \texttt{W053} & \texttt{W054} \\
+        \colorbox{red-200}{\texttt{\bf -287-}} & \colorbox{red-200}{\texttt{\bf -288-}} & \colorbox{red-200}{\texttt{\bf -289-}} & \colorbox{red-200}{\texttt{\bf -290-}} & \colorbox{red-200}{\texttt{\bf -291-}} & \colorbox{red-200}{\texttt{\bf -292-}} \\
+        \hline
+\end{tabular}\newpage
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.1, page=293]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=294]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=295]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=296]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=297]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=298]{../tex/isosigns_complete.pdf} \\
+        \texttt{W055} & \texttt{W056} & \texttt{W057} & \texttt{W058} & \texttt{W059} & \texttt{W060} \\
+        \colorbox{red-200}{\texttt{\bf -293-}} & \colorbox{red-200}{\texttt{\bf -294-}} & \colorbox{red-200}{\texttt{\bf -295-}} & \colorbox{red-200}{\texttt{\bf -296-}} & \colorbox{red-200}{\texttt{\bf -297-}} & \colorbox{red-200}{\texttt{\bf -298-}} \\
+        \hline
+
+        \includegraphics[scale=0.1, page=299]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=300]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=301]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=302]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=303]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=304]{../tex/isosigns_complete.pdf} \\
+        \texttt{W061} & \texttt{W062} & \texttt{W063} & \texttt{W064} & \texttt{W065} & \texttt{W066} \\
+        \colorbox{red-200}{\texttt{\bf -299-}} & \colorbox{red-200}{\texttt{\bf -300-}} & \colorbox{red-200}{\texttt{\bf -301-}} & \colorbox{red-200}{\texttt{\bf -302-}} & \colorbox{red-200}{\texttt{\bf -303-}} & \colorbox{red-200}{\texttt{\bf -304-}} \\
+        \hline
+
+        \includegraphics[scale=0.1, page=305]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=306]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=307]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=308]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=309]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=310]{../tex/isosigns_complete.pdf} \\
+        \texttt{W067} & \texttt{W068} & \texttt{W069} & \texttt{W070} & \texttt{W071} & \texttt{W072} \\
+        \colorbox{red-200}{\texttt{\bf -305-}} & \colorbox{red-200}{\texttt{\bf -306-}} & \colorbox{red-200}{\texttt{\bf -307-}} & \colorbox{red-200}{\texttt{\bf -308-}} & \colorbox{red-200}{\texttt{\bf -309-}} & \colorbox{red-200}{\texttt{\bf -310-}} \\
+        \hline
+
+        \includegraphics[scale=0.1, page=311]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=312]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=313]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=314]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=315]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=316]{../tex/isosigns_complete.pdf} \\
+        \texttt{W073} & \texttt{W074} & \texttt{W075} & \texttt{W076} & \texttt{W077} & \texttt{W078} \\
+        \colorbox{red-200}{\texttt{\bf -311-}} & \colorbox{red-200}{\texttt{\bf -312-}} & \colorbox{red-200}{\texttt{\bf -313-}} & \colorbox{red-200}{\texttt{\bf -314-}} & \colorbox{red-200}{\texttt{\bf -315-}} & \colorbox{red-200}{\texttt{\bf -316-}} \\
+        \hline
+
+        \includegraphics[scale=0.1, page=317]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=318]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=319]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=320]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.1, page=321]{../tex/isosigns_complete.pdf} \\
+        \texttt{W079} & \texttt{W080} & \texttt{W087} & \texttt{W088} & \texttt{W089} & \\
+        \colorbox{red-200}{\texttt{\bf -317-}} & \colorbox{red-200}{\texttt{\bf -318-}} & \colorbox{red-200}{\texttt{\bf -319-}} & \colorbox{red-200}{\texttt{\bf -320-}} & \colorbox{red-200}{\texttt{\bf -321-}} \\
+        \hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section{ISO Signs (standard 7001)}
+
+\noindent\textbf{NOTE}: For more information about the signs and standards, take a look at \href{https://en.wikipedia.org/wiki/ISO_7001}{\textcolor{blue-700}{https://en.wikipedia.org/wiki/ISO\_7001}}.
+
+\begin{center}
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=322]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=323]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=324]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=325]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=326]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=327]{../tex/isosigns_complete.pdf} \\
+        \texttt{AC001} & \texttt{AC002} & \texttt{AC003} & \texttt{AC004} & \texttt{AC005} & \texttt{AC006} \\
+        \colorbox{red-200}{\texttt{\bf -322-}} & \colorbox{red-200}{\texttt{\bf -323-}} & \colorbox{red-200}{\texttt{\bf -324-}} & \colorbox{red-200}{\texttt{\bf -325-}} & \colorbox{red-200}{\texttt{\bf -326-}} & \colorbox{red-200}{\texttt{\bf -327-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=328]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=329]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=330]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=331]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=332]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=333]{../tex/isosigns_complete.pdf} \\
+        \texttt{AC007} & \texttt{AC008} & \texttt{AC009} & \texttt{AC010} & \texttt{AC011} & \texttt{AC012} \\
+        \colorbox{red-200}{\texttt{\bf -328-}} & \colorbox{red-200}{\texttt{\bf -329-}} & \colorbox{red-200}{\texttt{\bf -330-}} & \colorbox{red-200}{\texttt{\bf -331-}} & \colorbox{red-200}{\texttt{\bf -332-}} & \colorbox{red-200}{\texttt{\bf -333-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=334]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=335]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=336]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=337]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=338]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=339]{../tex/isosigns_complete.pdf} \\
+        \texttt{AC013} & \texttt{AC014} & \texttt{AC015} & \texttt{AC016} & \texttt{AC017} & \texttt{AC018} \\
+        \colorbox{red-200}{\texttt{\bf -334-}} & \colorbox{red-200}{\texttt{\bf -335-}} & \colorbox{red-200}{\texttt{\bf -336-}} & \colorbox{red-200}{\texttt{\bf -337-}} & \colorbox{red-200}{\texttt{\bf -338-}} & \colorbox{red-200}{\texttt{\bf -339-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=340]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=341]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=342]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=343]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=344]{../tex/isosigns_complete.pdf} \\
+        \texttt{AC019} & \texttt{AC020} & \texttt{AC021} & \texttt{AC022} & \texttt{AC023} \\
+        \colorbox{red-200}{\texttt{\bf -340-}} & \colorbox{red-200}{\texttt{\bf -341-}} & \colorbox{red-200}{\texttt{\bf -342-}} & \colorbox{red-200}{\texttt{\bf -343-}} & \colorbox{red-200}{\texttt{\bf -344-}} & \\
+        \hline
+\end{tabular}\newpage
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=345]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=346]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=347]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=348]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=349]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=350]{../tex/isosigns_complete.pdf} \\
+        \texttt{BP001} & \texttt{BP002} & \texttt{BP003} & \texttt{BP004} & \texttt{BP005} & \texttt{BP006} \\
+        \colorbox{red-200}{\texttt{\bf -345-}} & \colorbox{red-200}{\texttt{\bf -346-}} & \colorbox{red-200}{\texttt{\bf -347-}} & \colorbox{red-200}{\texttt{\bf -348-}} & \colorbox{red-200}{\texttt{\bf -349-}} & \colorbox{red-200}{\texttt{\bf -350-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=351]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=352]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=353]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=354]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=355]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=356]{../tex/isosigns_complete.pdf} \\
+        \texttt{BP007} & \texttt{BP008} & \texttt{BP009} & \texttt{BP010} & \texttt{BP011} & \texttt{BP012} \\
+        \colorbox{red-200}{\texttt{\bf -351-}} & \colorbox{red-200}{\texttt{\bf -352-}} & \colorbox{red-200}{\texttt{\bf -353-}} & \colorbox{red-200}{\texttt{\bf -354-}} & \colorbox{red-200}{\texttt{\bf -355-}} & \colorbox{red-200}{\texttt{\bf -356-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=357]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=358]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=359]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=360]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=361]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=362]{../tex/isosigns_complete.pdf} \\
+        \texttt{BP013} & \texttt{BP014} & \texttt{BP015} & \texttt{BP016} & \texttt{BP017} & \texttt{BP018} \\
+        \colorbox{red-200}{\texttt{\bf -357-}} & \colorbox{red-200}{\texttt{\bf -358-}} & \colorbox{red-200}{\texttt{\bf -359-}} & \colorbox{red-200}{\texttt{\bf -360-}} & \colorbox{red-200}{\texttt{\bf -361-}} & \colorbox{red-200}{\texttt{\bf -362-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=363]{../tex/isosigns_complete.pdf} \\
+        \texttt{BP019} & & & & &\\
+        \colorbox{red-200}{\texttt{\bf -363-}} \\
+        \hline    
+\end{tabular}\newpage
+
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=364]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=365]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=366]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=367]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=368]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=369]{../tex/isosigns_complete.pdf} \\
+        \texttt{CF001} & \texttt{CF002} & \texttt{CF003} & \texttt{CF004} & \texttt{CF005} & \texttt{CF006} \\
+        \colorbox{red-200}{\texttt{\bf -364-}} & \colorbox{red-200}{\texttt{\bf -365-}} & \colorbox{red-200}{\texttt{\bf -366-}} & \colorbox{red-200}{\texttt{\bf -367-}} & \colorbox{red-200}{\texttt{\bf -368-}} & \colorbox{red-200}{\texttt{\bf -369-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=370]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=371]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=372]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=373]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=374]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=375]{../tex/isosigns_complete.pdf} \\
+        \texttt{CF007} & \texttt{CF008} & \texttt{CF009} & \texttt{CF010} & \texttt{CF011} & \texttt{CF012} \\
+        \colorbox{red-200}{\texttt{\bf -370-}} & \colorbox{red-200}{\texttt{\bf -371-}} & \colorbox{red-200}{\texttt{\bf -372-}} & \colorbox{red-200}{\texttt{\bf -373-}} & \colorbox{red-200}{\texttt{\bf -374-}} & \colorbox{red-200}{\texttt{\bf -375-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=376]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=377]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=378]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=379]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=380]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=381]{../tex/isosigns_complete.pdf} \\
+        \texttt{CF014} & \texttt{CF015} & \texttt{CF016} & \texttt{CF017} & \texttt{CF018} & \texttt{CF019} \\
+        \colorbox{red-200}{\texttt{\bf -376-}} & \colorbox{red-200}{\texttt{\bf -377-}} & \colorbox{red-200}{\texttt{\bf -378-}} & \colorbox{red-200}{\texttt{\bf -379-}} & \colorbox{red-200}{\texttt{\bf -380-}} & \colorbox{red-200}{\texttt{\bf -381-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=382]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=383]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=384]{../tex/isosigns_complete.pdf} \\
+        \texttt{CF020} & \texttt{CF021} & \texttt{CF022} & & & \\
+        \colorbox{red-200}{\texttt{\bf -382-}} & \colorbox{red-200}{\texttt{\bf -383-}} & \colorbox{red-200}{\texttt{\bf -384-}} \\
+        \hline    
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=385]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=386]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=387]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=388]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=389]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=390]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF001} & \texttt{PF002} & \texttt{PF003} & \texttt{PF004} & \texttt{PF005} & \texttt{PF007} \\
+        \colorbox{red-200}{\texttt{\bf -385-}} & \colorbox{red-200}{\texttt{\bf -386-}} & \colorbox{red-200}{\texttt{\bf -387-}} & \colorbox{red-200}{\texttt{\bf -388-}} & \colorbox{red-200}{\texttt{\bf -389-}} & \colorbox{red-200}{\texttt{\bf -390-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=391]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=392]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=393]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=394]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=395]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=396]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF008} & \texttt{PF009} & \texttt{PF010} & \texttt{PF011} & \texttt{PF012} & \texttt{PF013} \\
+        \colorbox{red-200}{\texttt{\bf -391-}} & \colorbox{red-200}{\texttt{\bf -392-}} & \colorbox{red-200}{\texttt{\bf -393-}} & \colorbox{red-200}{\texttt{\bf -394-}} & \colorbox{red-200}{\texttt{\bf -395-}} & \colorbox{red-200}{\texttt{\bf -396-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=397]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=398]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=399]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=400]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=401]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=402]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF014} & \texttt{PF015} & \texttt{PF016} & \texttt{PF017} & \texttt{PF018} & \texttt{PF019} \\
+        \colorbox{red-200}{\texttt{\bf -397-}} & \colorbox{red-200}{\texttt{\bf -398-}} & \colorbox{red-200}{\texttt{\bf -399-}} & \colorbox{red-200}{\texttt{\bf -400-}} & \colorbox{red-200}{\texttt{\bf -401-}} & \colorbox{red-200}{\texttt{\bf -402-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=403]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=404]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=405]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=406]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=407]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=408]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF020} & \texttt{PF021} & \texttt{PF023} & \texttt{PF024} & \texttt{PF025} & \texttt{PF026} \\
+        \colorbox{red-200}{\texttt{\bf -403-}} & \colorbox{red-200}{\texttt{\bf -404-}} & \colorbox{red-200}{\texttt{\bf -405-}} & \colorbox{red-200}{\texttt{\bf -406-}} & \colorbox{red-200}{\texttt{\bf -407-}} & \colorbox{red-200}{\texttt{\bf -408-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=409]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=410]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=411]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=412]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=413]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=414]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF027} & \texttt{PF028} & \texttt{PF029} & \texttt{PF030} & \texttt{PF032} & \texttt{PF033} \\
+        \colorbox{red-200}{\texttt{\bf -409-}} & \colorbox{red-200}{\texttt{\bf -410-}} & \colorbox{red-200}{\texttt{\bf -411-}} & \colorbox{red-200}{\texttt{\bf -412-}} & \colorbox{red-200}{\texttt{\bf -413-}} & \colorbox{red-200}{\texttt{\bf -414-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=415]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=416]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=417]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=418]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=419]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=420]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF034} & \texttt{PF036} & \texttt{PF037} & \texttt{PF043} & \texttt{PF044} & \texttt{PF050} \\
+        \colorbox{red-200}{\texttt{\bf -415-}} & \colorbox{red-200}{\texttt{\bf -416-}} & \colorbox{red-200}{\texttt{\bf -417-}} & \colorbox{red-200}{\texttt{\bf -418-}} & \colorbox{red-200}{\texttt{\bf -419-}} & \colorbox{red-200}{\texttt{\bf -420-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=421]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=422]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=423]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=424]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=425]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=426]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF054} & \texttt{PF062} & \texttt{PF063} & \texttt{PF064} & \texttt{PF065} & \texttt{PF066} \\
+        \colorbox{red-200}{\texttt{\bf -421-}} & \colorbox{red-200}{\texttt{\bf -422-}} & \colorbox{red-200}{\texttt{\bf -423-}} & \colorbox{red-200}{\texttt{\bf -424-}} & \colorbox{red-200}{\texttt{\bf -425-}} & \colorbox{red-200}{\texttt{\bf -426-}} \\
+        \hline
+\end{tabular}        
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=427]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=428]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=429]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=430]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=431]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=432]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF067} & \texttt{PF068} & \texttt{PF069} & \texttt{PF070} & \texttt{PF074} & \texttt{PF075} \\
+        \colorbox{red-200}{\texttt{\bf -427-}} & \colorbox{red-200}{\texttt{\bf -428-}} & \colorbox{red-200}{\texttt{\bf -429-}} & \colorbox{red-200}{\texttt{\bf -430-}} & \colorbox{red-200}{\texttt{\bf -431-}} & \colorbox{red-200}{\texttt{\bf -432-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=433]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=434]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=435]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=436]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=437]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=438]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF076} & \texttt{PF077} & \texttt{PF078} & \texttt{PF079} & \texttt{PF080} & \texttt{PF081} \\
+        \colorbox{red-200}{\texttt{\bf -433-}} & \colorbox{red-200}{\texttt{\bf -434-}} & \colorbox{red-200}{\texttt{\bf -435-}} & \colorbox{red-200}{\texttt{\bf -436-}} & \colorbox{red-200}{\texttt{\bf -437-}} & \colorbox{red-200}{\texttt{\bf -438-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=439]{../tex/isosigns_complete.pdf} \\
+        \texttt{PF082} & & & & & \\
+        \colorbox{red-200}{\texttt{\bf -439-}} \\
+        \hline
+\end{tabular}\vspace{10mm}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=440]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=441]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=442]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=443]{../tex/isosigns_complete.pdf} & & \\
+        \texttt{SA001} & \texttt{SA002} & \texttt{SA003} & \texttt{SA004} & & \\
+        \colorbox{red-200}{\texttt{\bf -440-}} & \colorbox{red-200}{\texttt{\bf -441-}} & \colorbox{red-200}{\texttt{\bf -442-}} & \colorbox{red-200}{\texttt{\bf -443-}} & & \\
+        \hline
+\end{tabular}\newpage
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=444]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=445]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=446]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=447]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=448]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=449]{../tex/isosigns_complete.pdf} \\
+        \texttt{TC001} & \texttt{TC002} & \texttt{TC003} & \texttt{TC004} & \texttt{TC005} & \texttt{TC006} \\
+        \colorbox{red-200}{\texttt{\bf -444-}} & \colorbox{red-200}{\texttt{\bf -445-}} & \colorbox{red-200}{\texttt{\bf -446-}} & \colorbox{red-200}{\texttt{\bf -447-}} & \colorbox{red-200}{\texttt{\bf -448-}} & \colorbox{red-200}{\texttt{\bf -449-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=450]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=451]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=452]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=453]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=454]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=455]{../tex/isosigns_complete.pdf} \\
+        \texttt{TC007} & \texttt{TC008} & \texttt{TC009} & \texttt{TC010} & \texttt{TC011} & \texttt{TC012} \\
+        \colorbox{red-200}{\texttt{\bf -450-}} & \colorbox{red-200}{\texttt{\bf -451-}} & \colorbox{red-200}{\texttt{\bf -452-}} & \colorbox{red-200}{\texttt{\bf -453-}} & \colorbox{red-200}{\texttt{\bf -454-}} & \colorbox{red-200}{\texttt{\bf -455-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=456]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=457]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=458]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=459]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=460]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=461]{../tex/isosigns_complete.pdf} \\
+        \texttt{TC013} & \texttt{TC014} & \texttt{TC015} & \texttt{TC016} & \texttt{TC017} & \texttt{TC018} \\
+        \colorbox{red-200}{\texttt{\bf -456-}} & \colorbox{red-200}{\texttt{\bf -457-}} & \colorbox{red-200}{\texttt{\bf -458-}} & \colorbox{red-200}{\texttt{\bf -459-}} & \colorbox{red-200}{\texttt{\bf -460-}} & \colorbox{red-200}{\texttt{\bf -461-}} \\
+        \hline
+\end{tabular}
+
+\begin{tabular}{cccccc}
+        \hline
+        \includegraphics[scale=0.4, page=462]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=463]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=464]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=465]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=466]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=467]{../tex/isosigns_complete.pdf} \\
+        \texttt{TF001} & \texttt{TF002} & \texttt{TF003} & \texttt{TF004} & \texttt{TF005} & \texttt{TF006} \\
+        \colorbox{red-200}{\texttt{\bf -462-}} & \colorbox{red-200}{\texttt{\bf -463-}} & \colorbox{red-200}{\texttt{\bf -464-}} & \colorbox{red-200}{\texttt{\bf -465-}} & \colorbox{red-200}{\texttt{\bf -466-}} & \colorbox{red-200}{\texttt{\bf -467-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=468]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=469]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=470]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=471]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=472]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=473]{../tex/isosigns_complete.pdf} \\
+        \texttt{TF007} & \texttt{TF008} & \texttt{TF009} & \texttt{TF010} & \texttt{TF011} & \texttt{TF012} \\
+        \colorbox{red-200}{\texttt{\bf -468-}} & \colorbox{red-200}{\texttt{\bf -469-}} & \colorbox{red-200}{\texttt{\bf -470-}} & \colorbox{red-200}{\texttt{\bf -471-}} & \colorbox{red-200}{\texttt{\bf -472-}} & \colorbox{red-200}{\texttt{\bf -473-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=474]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=475]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=476]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=477]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=478]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=479]{../tex/isosigns_complete.pdf} \\
+        \texttt{TF013} & \texttt{TF014} & \texttt{TF015} & \texttt{TF016} & \texttt{TF017} & \texttt{TF018} \\
+        \colorbox{red-200}{\texttt{\bf -474-}} & \colorbox{red-200}{\texttt{\bf -475-}} & \colorbox{red-200}{\texttt{\bf -476-}} & \colorbox{red-200}{\texttt{\bf -477-}} & \colorbox{red-200}{\texttt{\bf -478-}} & \colorbox{red-200}{\texttt{\bf -479-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=480]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=481]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=482]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=483]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=484]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=485]{../tex/isosigns_complete.pdf} \\
+        \texttt{TF019} & \texttt{TF020} & \texttt{TF021} & \texttt{TF027} & \texttt{TF028} & \texttt{TF029} \\
+        \colorbox{red-200}{\texttt{\bf -480-}} & \colorbox{red-200}{\texttt{\bf -481-}} & \colorbox{red-200}{\texttt{\bf -482-}} & \colorbox{red-200}{\texttt{\bf -483-}} & \colorbox{red-200}{\texttt{\bf -484-}} & \colorbox{red-200}{\texttt{\bf -485-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=486]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=487]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=488]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=489]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=490]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=491]{../tex/isosigns_complete.pdf} \\
+        \texttt{TF030} & \texttt{TF031} & \texttt{TF032} & \texttt{TF033} & \texttt{TF034} & \texttt{TF035} \\
+        \colorbox{red-200}{\texttt{\bf -486-}} & \colorbox{red-200}{\texttt{\bf -487-}} & \colorbox{red-200}{\texttt{\bf -488-}} & \colorbox{red-200}{\texttt{\bf -489-}} & \colorbox{red-200}{\texttt{\bf -490-}} & \colorbox{red-200}{\texttt{\bf -491-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=492]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=493]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=494]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=495]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=496]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=497]{../tex/isosigns_complete.pdf} \\
+        \texttt{TF036} & \texttt{TF037} & \texttt{TF038} & \texttt{TF039} & \texttt{TF040} & \texttt{TF042} \\
+        \colorbox{red-200}{\texttt{\bf -492-}} & \colorbox{red-200}{\texttt{\bf -493-}} & \colorbox{red-200}{\texttt{\bf -494-}} & \colorbox{red-200}{\texttt{\bf -495-}} & \colorbox{red-200}{\texttt{\bf -496-}} & \colorbox{red-200}{\texttt{\bf -497-}} \\
+        \hline
+
+        \includegraphics[scale=0.4, page=498]{../tex/isosigns_complete.pdf} & \includegraphics[scale=0.4, page=499]{../tex/isosigns_complete.pdf} \\
+        \texttt{TF043} & \texttt{TF044} & & & & \\
+        \colorbox{red-200}{\texttt{\bf -498-}} & \colorbox{red-200}{\texttt{\bf -499-}} \\
+        \hline
+\end{tabular}
+\end{center}\newpage
+
+\section{Other Information}
+
+\noindent For reference, here are two tables that give an overview of how the signs are categorised.
+\vspace{5mm}
+
+\subsection{ISO 7010}
 \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{lll}
         \hline
@@ -192,244 +742,7 @@ Seven colors are defined which are also used to create the signs: \vspace{5mm}
         \hline
 \end{tabular}\vspace{5mm}
 
-\noindent The command to access a sign is: 
-
-\begin{tcolorbox}[colback=gray-200]
-    \vspace{3mm}
-    \begin{verbatim}
-    \Isosign{<Letter><Number>}
-    \end{verbatim}    
-\end{tcolorbox}
-\vspace{5mm}
-
-\noindent This command constructs a path to a sign in your \TeX Live / Mik\TeX / \ldots $\;$ installation. 
-To display a sign, use the following code:
-
-\begin{tcolorbox}[colback=gray-200]
-    \vspace{3mm}
-    \begin{verbatim}
-    %%% Example file   
-    \documentclass{article}
-    
-        \usepackage{isosigns}
-
-    \begin{document}
-
-            \includegraphics{\Isosign{F001}}
-
-            \includegraphics[scale=2]{\Isosign{P074}}
-
-    \end{document}
-    \end{verbatim}    
-\end{tcolorbox}
-
-\noindent\textbf{NOTE}: For more information about the signs and standards, take a look at \href{https://en.wikipedia.org/wiki/ISO_7010}{\textcolor{blue-700}{https://en.wikipedia.org/wiki/ISO\_7010}}.
-
-\begin{center}
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV003.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV004.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV009.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV010.pdf}& \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV011.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV012.pdf} \\
-        \texttt{CV003} & \texttt{CV004} & \texttt{CV009} & \texttt{CV010} & \texttt{CV011} & \texttt{CV012} \\
-        
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV013.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV027.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV028.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV029.pdf}& \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV064.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_CV067.pdf} \\
-        \texttt{CV013} & \texttt{CV027} & \texttt{CV028} & \texttt{CV029} & \texttt{CV064} & \texttt{CV067} \\
-        
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E001.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E002.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E003.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E004.pdf}& \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E007.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E008.pdf} \\
-        \texttt{E001} & \texttt{E002} & \texttt{E003} & \texttt{E004} & \texttt{E007} & \texttt{E008} \\
-        
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E007.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E008.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E009.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E010.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E011.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E012.pdf} \\
-        \texttt{E007} & \texttt{E008} & \texttt{E009} & \texttt{E010} & \texttt{E011} & \texttt{E012} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E013.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E014.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E015.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E016.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E017.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E018.pdf} \\
-        \texttt{E013} & \texttt{E014} & \texttt{E015} & \texttt{E016} & \texttt{E017} & \texttt{E018} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E019.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E020.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E021.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E022.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E023.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E024.pdf} \\
-        \texttt{E019} & \texttt{E020} & \texttt{E021} & \texttt{E022} & \texttt{E023} & \texttt{E024} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E025.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E026.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E027.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E028.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E029.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E030.pdf} \\
-        \texttt{E025} & \texttt{E026} & \texttt{E027} & \texttt{E028} & \texttt{E029} & \texttt{E030} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E031.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E032.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E033.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E034.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E035.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E036.pdf} \\
-        \texttt{E031} & \texttt{E032} & \texttt{E033} & \texttt{E034} & \texttt{E035} & \texttt{E036} \\
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E037.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E038.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E039.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E040.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E041.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E042.pdf} \\
-        \texttt{E037} & \texttt{E038} & \texttt{E039} & \texttt{E040} & \texttt{E041} & \texttt{E042} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E043.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E044.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E045.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E046.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E047.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E048.pdf} \\
-        \texttt{E043} & \texttt{E044} & \texttt{E045} & \texttt{E046} & \texttt{E047} & \texttt{E048} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E049.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E050.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E051.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E052.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E053.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E054.pdf} \\
-        \texttt{E049} & \texttt{E050} & \texttt{E051} & \texttt{E052} & \texttt{E053} & \texttt{E054} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E055.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E056.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E057.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E058.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E059.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E060.pdf} \\
-        \texttt{E055} & \texttt{E056} & \texttt{E057} & \texttt{E058} & \texttt{E059} & \texttt{E060} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E061.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E062.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E063.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E064.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E065.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E067.pdf}  \\
-        \texttt{E061} & \texttt{E062} & \texttt{E063} & \texttt{E064} & \texttt{E065} & \texttt{E067} \\
-
-        \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E068.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E069.pdf} & \includegraphics[scale=0.2]{../tex/iso7010/isosigns_ISO_7010_E070.pdf} & \\
-        \texttt{E068} & \texttt{E069} & \texttt{E070} & \\
-
-        \hline
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F001.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F002.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F003.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F004.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F005.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F006.pdf} \\
-        \texttt{F001} & \texttt{F002} & \texttt{F003} & \texttt{F004} & \texttt{F005} & \texttt{F006} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F007.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F008.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F009.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F010.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F011.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F012.pdf} \\
-        \texttt{F007} & \texttt{F008} & \texttt{F009} & \texttt{F010} & \texttt{F011} & \texttt{F012} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F013.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F014.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F015.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F016.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F017.pdf} & \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F018.pdf} \\
-        \texttt{F013} & \texttt{F014} & \texttt{F015} & \texttt{F016} & \texttt{F017} & \texttt{F018} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7010/isosigns_ISO_7010_F019.pdf} \\
-        \texttt{F019} \\
-        \hline
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M001.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M002.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M003.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M004.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M005.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M006.pdf} \\
-        \texttt{M001} & \texttt{M002} & \texttt{M003} & \texttt{M004} & \texttt{M005} & \texttt{M006} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M007.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M008.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M009.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M010.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M011.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M012.pdf} \\
-        \texttt{M007} & \texttt{M008} & \texttt{M009} & \texttt{M010} & \texttt{M011} & \texttt{M012} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M013.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M014.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M015.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M016.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M017.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M018.pdf} \\
-        \texttt{M013} & \texttt{M014} & \texttt{M015} & \texttt{M016} & \texttt{M017} & \texttt{M018} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M019.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M020.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M021.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M022.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M023.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M024.pdf} \\
-        \texttt{M019} & \texttt{M020} & \texttt{M021} & \texttt{M022} & \texttt{M023} & \texttt{M024} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M025.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M026.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M027.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M028.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M029.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M030.pdf} \\
-        \texttt{M025} & \texttt{M026} & \texttt{M027} & \texttt{M028} & \texttt{M029} & \texttt{M030} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M031.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M032.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M033.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M034.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M035.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M036.pdf} \\
-        \texttt{M031} & \texttt{M032} & \texttt{M033} & \texttt{M034} & \texttt{M035} & \texttt{M036} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M037.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M038.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M039.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M040.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M041.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M042.pdf} \\
-        \texttt{M037} & \texttt{M038} & \texttt{M039} & \texttt{M040} & \texttt{M041} & \texttt{M042} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M043.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M044.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M045.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M046.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M047.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M048.pdf} \\
-        \texttt{M043} & \texttt{M044} & \texttt{M045} & \texttt{M046} & \texttt{M047} & \texttt{M048} \\
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M049.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M050.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M051.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M052.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M053.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M054.pdf} \\
-        \texttt{M049} & \texttt{M050} & \texttt{M051} & \texttt{M052} & \texttt{M053} & \texttt{M054} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M055.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M056.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M057.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M058.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M059.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M060.pdf} \\
-        \texttt{M055} & \texttt{M056} & \texttt{M057} & \texttt{M058} & \texttt{M059} & \texttt{M060} \\
-        
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M061.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M062.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M070.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_M071.pdf} & & \\
-        \texttt{M061} & \texttt{M062} & \texttt{M070} & \texttt{M071} & & \\
-        \hline
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P001.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P002.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P003.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P004.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P005.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P006.pdf} \\
-        \texttt{P001} & \texttt{P002} & \texttt{P003} & \texttt{P004} & \texttt{P005} & \texttt{P006} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P007.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P008.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P009.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P010.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P011.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P012.pdf} \\
-        \texttt{P007} & \texttt{P008} & \texttt{P009} & \texttt{P010} & \texttt{P011} & \texttt{P012} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P013.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P014.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P015.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P016.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P017.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P018.pdf} \\
-        \texttt{P013} & \texttt{P014} & \texttt{P015} & \texttt{P016} & \texttt{P017} & \texttt{P018} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P019.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P020.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P021.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P022.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P023.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P024.pdf} \\
-        \texttt{P019} & \texttt{P020} & \texttt{P021} & \texttt{P022} & \texttt{P023} & \texttt{P024} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P025.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P026.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P027.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P028.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P029.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P030.pdf} \\
-        \texttt{P025} & \texttt{P026} & \texttt{P027} & \texttt{P028} & \texttt{P029} & \texttt{P030} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P031.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P032.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P033.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P034.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P035.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P036.pdf} \\
-        \texttt{P031} & \texttt{P032} & \texttt{P033} & \texttt{P034} & \texttt{P035} & \texttt{P036} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P037.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P038.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P039.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P040.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P041.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P042.pdf} \\
-        \texttt{P037} & \texttt{P038} & \texttt{P039} & \texttt{P040} & \texttt{P041} & \texttt{P042} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P043.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P044.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P045.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P046.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P047.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P048.pdf} \\
-        \texttt{P043} & \texttt{P044} & \texttt{P045} & \texttt{P046} & \texttt{P047} & \texttt{P048} \\
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P049.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P050.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P051.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P052.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P053.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P054.pdf} \\
-        \texttt{P049} & \texttt{P050} & \texttt{P051} & \texttt{P052} & \texttt{P053} & \texttt{P054} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P055.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P056.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P057.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P058.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P059.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P060.pdf} \\
-        \texttt{P055} & \texttt{P056} & \texttt{P057} & \texttt{P058} & \texttt{P059} & \texttt{P060} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P061.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P062.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P063.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P064.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P065.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P066.pdf} \\
-        \texttt{P061} & \texttt{P062} & \texttt{P063} & \texttt{P064} & \texttt{P065} & \texttt{P066} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P067.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P068.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P069.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P070.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P071.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P072.pdf} \\
-        \texttt{P067} & \texttt{P068} & \texttt{P069} & \texttt{P070} & \texttt{P071} & \texttt{P072} \\
-
-        \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P073.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P074.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P075.pdf} & \includegraphics[scale=0.3]{../tex/iso7010/isosigns_ISO_7010_P081.pdf} \\
-        \texttt{P073} & \texttt{P074} & \texttt{P075} & \texttt{P081} \\
-        \hline
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W001.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W002.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W003.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W004.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W005.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W006.pdf} \\
-        \texttt{W001} & \texttt{W002} & \texttt{W003} & \texttt{W004} & \texttt{W005} & \texttt{W006} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W007.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W008.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W009.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W010.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W011.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W012.pdf} \\
-        \texttt{W007} & \texttt{W008} & \texttt{W009} & \texttt{W010} & \texttt{W011} & \texttt{W012} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W013.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W014.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W015.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W016.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W017.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W018.pdf} \\
-        \texttt{W013} & \texttt{W014} & \texttt{W015} & \texttt{W016} & \texttt{W017} & \texttt{W018} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W019.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W020.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W021.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W022.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W023.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W024.pdf} \\
-        \texttt{W019} & \texttt{W020} & \texttt{W021} & \texttt{W022} & \texttt{W023} & \texttt{W024} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W025.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W026.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W027.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W028.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W029.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W030.pdf} \\
-        \texttt{W025} & \texttt{W026} & \texttt{W027} & \texttt{W028} & \texttt{W029} & \texttt{W030} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W031.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W032.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W033.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W034.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W035.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W036.pdf} \\
-        \texttt{W031} & \texttt{W032} & \texttt{W033} & \texttt{W034} & \texttt{W035} & \texttt{W036} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W037.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W038.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W039.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W040.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W041.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W042.pdf} \\
-        \texttt{W037} & \texttt{W038} & \texttt{W039} & \texttt{W040} & \texttt{W041} & \texttt{W042} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W043.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W044.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W045.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W046.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W047.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W048.pdf} \\
-        \texttt{W043} & \texttt{W044} & \texttt{W045} & \texttt{W046} & \texttt{W047} & \texttt{W048} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W049.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W050.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W051.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W052.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W053.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W054.pdf} \\
-        \texttt{W049} & \texttt{W050} & \texttt{W051} & \texttt{W052} & \texttt{W053} & \texttt{W054} \\
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W055.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W056.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W057.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W058.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W059.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W060.pdf} \\
-        \texttt{W055} & \texttt{W056} & \texttt{W057} & \texttt{W058} & \texttt{W059} & \texttt{W060} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W061.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W062.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W063.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W064.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W065.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W066.pdf} \\
-        \texttt{W061} & \texttt{W062} & \texttt{W063} & \texttt{W064} & \texttt{W065} & \texttt{W066} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W067.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W068.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W069.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W070.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W071.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W072.pdf} \\
-        \texttt{W067} & \texttt{W068} & \texttt{W069} & \texttt{W070} & \texttt{W071} & \texttt{W072} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W073.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W074.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W075.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W076.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W077.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W078.pdf} \\
-        \texttt{W073} & \texttt{W074} & \texttt{W075} & \texttt{W076} & \texttt{W077} & \texttt{W078} \\
-
-        \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W079.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W080.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W087.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W088.pdf} & \includegraphics[scale=0.1]{../tex/iso7010/isosigns_ISO_7010_W089.pdf} \\
-        \texttt{W079} & \texttt{W080} & \texttt{W087} & \texttt{W088} & \texttt{W089} \\
-        \hline
-\end{tabular}
-\end{center}
-
-\newpage
-
-\section{ISO Signs (standard 7001)}
-
-\noindent This section deals with the construction of signs. To begin with, each sign is placed in a category, has a letter and a number: \vspace{5mm}
-
+\subsection{ISO 7001}
 \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{lll}
         \hline
@@ -444,212 +757,5 @@ To display a sign, use the following code:
         Tourism, culture and heritage & TC & (001 - 018) \\
         Sporting activities & SA & (001 - 004) \\
         \hline
-\end{tabular}\vspace{5mm}
-
-\noindent The command to access a sign is: 
-
-\begin{tcolorbox}[colback=gray-200]
-    \vspace{3mm}
-    \begin{verbatim}
-    \Isosignpi{<Letter><Number>}
-    \end{verbatim}    
-\end{tcolorbox}
-\vspace{5mm}
-
-\noindent This command constructs a path to a sign in your \TeX Live / Mik\TeX / \ldots $\;$ installation. 
-To display a sign, use the following code:
-
-\begin{tcolorbox}[colback=gray-200]
-    \vspace{3mm}
-    \begin{verbatim}
-    %%% Example file   
-    \documentclass{article}
-    
-        \usepackage{isosigns}
-
-    \begin{document}
-
-            \includegraphics{\Isosignpi{AC001}}
-
-            \includegraphics[scale=2]{\Isosignpi{PF024}}
-
-    \end{document}
-    \end{verbatim}    
-\end{tcolorbox}
-
-\noindent\textbf{NOTE}: For more information about the signs and standards, take a look at \href{https://en.wikipedia.org/wiki/ISO_7001}{\textcolor{blue-700}{https://en.wikipedia.org/wiki/ISO\_7001}}.
-
-\newpage
-
-\begin{center}
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC006.pdf} \\
-        \texttt{AC001} & \texttt{AC002} & \texttt{AC003} & \texttt{AC004} & \texttt{AC005} & \texttt{AC006} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC012.pdf} \\
-        \texttt{AC007} & \texttt{AC008} & \texttt{AC009} & \texttt{AC010} & \texttt{AC011} & \texttt{AC012} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC013.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC018.pdf} \\
-        \texttt{AC013} & \texttt{AC014} & \texttt{AC015} & \texttt{AC016} & \texttt{AC017} & \texttt{AC018} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC019.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC020.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC021.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC022.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_AC023.pdf} \\
-        \texttt{AC019} & \texttt{AC020} & \texttt{AC021} & \texttt{AC022} & \texttt{AC023} \\
-        \hline
 \end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF007.pdf} \\
-        \texttt{PF001} & \texttt{PF002} & \texttt{PF003} & \texttt{PF004} & \texttt{PF005} & \texttt{PF007} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF012.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF013.pdf} \\
-        \texttt{PF008} & \texttt{PF009} & \texttt{PF010} & \texttt{PF011} & \texttt{PF012} & \texttt{PF013} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF018.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF019.pdf} \\
-        \texttt{PF014} & \texttt{PF015} & \texttt{PF016} & \texttt{PF017} & \texttt{PF018} & \texttt{PF019} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF020.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF021.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF023.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF024.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF025.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF026.pdf} \\
-        \texttt{PF020} & \texttt{PF021} & \texttt{PF023} & \texttt{PF024} & \texttt{PF025} & \texttt{PF026} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF027.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF028.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF029.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF030.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF032.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF033.pdf} \\
-        \texttt{PF027} & \texttt{PF028} & \texttt{PF029} & \texttt{PF030} & \texttt{PF032} & \texttt{PF033} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF034.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF036.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF037.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF043.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF044.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF050.pdf} \\
-        \texttt{PF034} & \texttt{PF036} & \texttt{PF037} & \texttt{PF043} & \texttt{PF044} & \texttt{PF050} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF054.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF062.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF063.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF064.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF065.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF066.pdf} \\
-        \texttt{PF054} & \texttt{PF062} & \texttt{PF063} & \texttt{PF064} & \texttt{PF065} & \texttt{PF066} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF067.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF068.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF069.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF070.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF074.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF075.pdf} \\
-        \texttt{PF067} & \texttt{PF068} & \texttt{PF069} & \texttt{PF070} & \texttt{PF074} & \texttt{PF075} \\
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF076.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF077.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF078.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF079.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF080.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF081.pdf} \\
-        \texttt{PF076} & \texttt{PF077} & \texttt{PF078} & \texttt{PF079} & \texttt{PF080} & \texttt{PF081} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_PF082.pdf} & & & & & \\
-        \texttt{PF082} & & & & & \\
-        \hline
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF006.pdf} \\
-        \texttt{TF001} & \texttt{TF002} & \texttt{TF003} & \texttt{TF004} & \texttt{TF005} & \texttt{TF006} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF012.pdf} \\
-        \texttt{TF007} & \texttt{TF008} & \texttt{TF009} & \texttt{TF010} & \texttt{TF011} & \texttt{TF012} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF013.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF018.pdf} \\
-        \texttt{TF013} & \texttt{TF014} & \texttt{TF015} & \texttt{TF016} & \texttt{TF017} & \texttt{TF018} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF019.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF020.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF021.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF027.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF028.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF029.pdf} \\
-        \texttt{TF019} & \texttt{TF020} & \texttt{TF021} & \texttt{TF027} & \texttt{TF028} & \texttt{TF029} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF030.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF031.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF032.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF033.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF034.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF035.pdf} \\
-        \texttt{TF030} & \texttt{TF031} & \texttt{TF032} & \texttt{TF033} & \texttt{TF034} & \texttt{TF035} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF036.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF037.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF038.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF039.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF040.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF042.pdf} \\
-        \texttt{TF036} & \texttt{TF037} & \texttt{TF038} & \texttt{TF039} & \texttt{TF040} & \texttt{TF042} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF043.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TF044.pdf} & & & & \\
-        \texttt{TF043} & \texttt{TF044} & & & & \\
-        \hline
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP006.pdf} \\
-        \texttt{BP001} & \texttt{BP002} & \texttt{BP003} & \texttt{BP004} & \texttt{BP005} & \texttt{BP006} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP012.pdf} \\
-        \texttt{BP007} & \texttt{BP008} & \texttt{BP009} & \texttt{BP010} & \texttt{BP011} & \texttt{BP012} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP013.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP018.pdf} \\
-        \texttt{BP013} & \texttt{BP014} & \texttt{BP015} & \texttt{BP016} & \texttt{BP017} & \texttt{BP018} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_BP019.pdf} & & & & & \\
-        \texttt{BP019} & & & & &\\
-        \hline
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF006.pdf} \\
-        \texttt{CF001} & \texttt{CF002} & \texttt{CF003} & \texttt{CF004} & \texttt{CF005} & \texttt{CF006} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF012.pdf} \\
-        \texttt{CF007} & \texttt{CF008} & \texttt{CF009} & \texttt{CF010} & \texttt{CF011} & \texttt{CF012} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF018.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF019.pdf} \\
-        \texttt{CF014} & \texttt{CF015} & \texttt{CF016} & \texttt{CF017} & \texttt{CF018} & \texttt{CF019} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF020.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF021.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_CF022.pdf} & & & \\
-        \texttt{CF020} & \texttt{CF021} & \texttt{CF022} & & & \\
-        \hline
-\end{tabular}\vspace{10mm}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC004.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC005.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC006.pdf} \\
-        \texttt{TC001} & \texttt{TC002} & \texttt{TC003} & \texttt{TC004} & \texttt{TC005} & \texttt{TC006} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC007.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC008.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC009.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC010.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC011.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC012.pdf} \\
-        \texttt{TC007} & \texttt{TC008} & \texttt{TC009} & \texttt{TC010} & \texttt{TC011} & \texttt{TC012} \\
-
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC013.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC014.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC015.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC016.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC017.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_TC018.pdf} \\
-        \texttt{TC013} & \texttt{TC014} & \texttt{TC015} & \texttt{TC016} & \texttt{TC017} & \texttt{TC018} \\
-        \hline
-\end{tabular}
-
-\begin{tabular}{cccccc}
-        \hline
-        \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_SA001.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_SA002.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_SA003.pdf} & \includegraphics[scale=0.4]{../tex/iso7001/isosigns_ISO_7001_PI_SA004.pdf} & & \\
-        \texttt{SA001} & \texttt{SA002} & \texttt{SA003} & \texttt{SA004} & & \\
-        \hline
-\end{tabular}
-\end{center}
-
-\newpage
-
-\section{Known Issue}\label{sec:issue}
-
-\noindent On some systems (mostly Windows), \TeX \hspace{1mm} is not able to find the pdfs properly. Since this is an issue that seems to exist only on certain systems and not all, please use the following
-workaround by providing the fullpath that leads to the installation directory 
-of isosigns. This can be done by supplying it through the \textbf{fullpath}-option:
-
-\begin{tcolorbox}[colback=gray-200]
-    \vspace{3mm}
-    \begin{verbatim}
-    %%% Example file   
-    \documentclass{article}
-    
-                                % example path
-        \usepackage[ fullpath = /texlive/2024/texmf-dist/tex/latex/isosigns ]{isosigns}
-
-    \begin{document}
-
-            \includegraphics{\Isosign{F001}}
-
-            \includegraphics[scale=2]{\Isosign{P074}}
-
-    \end{document}
-    \end{verbatim}    
-\end{tcolorbox}
-\vspace{5mm}
-
-\noindent If you are unsure about the path, simply execute 
-\begin{verbatim}
-    kpsewhich isosigns.sty
-\end{verbatim}\vspace{3mm} 
-
-\noindent in a terminal and a path will be returned. The path that is given in the example is the typical path on most systems. 
-\vspace{5mm}
-
-\noindent\textbf{NOTE}: On Windows, the path should also be given with foreslashes (just like in the example). \\
-
-\noindent\textbf{NOTE}: The last directory in the path \textit{does not} end with a foreslash (just like in the example). \\
-
 \end{document}

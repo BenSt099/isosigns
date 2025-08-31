@@ -13,19 +13,21 @@ The older version of this package was called "isosafety" and is no longer suppor
 
 The documentation can be viewed [here](https://github.com/BenSt099/isosigns/blob/main/isosigns/doc/isosigns-docs.pdf).
 
-## Known Issues
-
-If Latex tells you that it does not find any pdf-files, please provide a full path to the package on your system via the `fullpath`-option:
+## Example
 
 ```
-                        % example path
-\usepackage[ fullpath = /texlive/2024/texmf-dist/tex/latex/isosafety ]{isosafety}
+ %%% Example file   
+    \documentclass{article}
+    
+        \usepackage{isosigns}
 
-\begin{document}
+    \begin{document}
 
-    \includegraphics[scale=1]{\Isosign{F001}}
+            \Isosign{14} 
 
-\end{document}
+            \Isosign[scale=0.2,angle=90]{29} 
+
+    \end{document}
 ```
 
 ## Issues

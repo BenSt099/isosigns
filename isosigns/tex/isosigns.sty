@@ -12,18 +12,15 @@
 % 
 % The Current Maintainer of this work is Ben Steinhauer.
 %
-% This work consists of the files isosigns.sty, all files
-% in the folders /doc, /iso7001 and /iso7010.
-
+% This work consists of the files isosigns.sty, 
+% isosigns_complete.pdf and all files in the folder /doc.
 
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesPackage{isosigns}
-[2025/08/22 v2 ISO Safety Colors And Signs]
+[2025/08/31 v2.1 ISO Safety Colors And Signs]
 
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
-\RequirePackage{ifthen}
-\RequirePackage{xkeyval}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -37,22 +34,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\isosignspath}{false}
-\DeclareOptionX{fullpath}{\renewcommand{\isosignspath}{#1}}
-\ProcessOptionsX\relax
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\Isosign}[2]{\includegraphics[page=#1,#2]{/iso7010/isosigns_ISO_7010_#1.pdf}}
-
-
-\ifthenelse{\equal{\isosignspath}{false}}
-{\newcommand{\Isosign}[1]{/iso7010/isosigns_ISO_7010_#1.pdf}}
-{\newcommand{\Isosign}[1]{\isosignspath /iso7010/isosigns_ISO_7010_#1.pdf}}
-
-\ifthenelse{\equal{\isosignspath}{false}}
-{\newcommand{\Isosignpi}[1]{/iso7001/isosigns_ISO_7001_PI_#1.pdf}}
-{\newcommand{\Isosignpi}[1]{\isosignspath /iso7001/isosigns_ISO_7001_PI_#1.pdf}}
+\DeclareRobustCommand{\Isosign}[2][scale=0.3]{\includegraphics[page=#2,#1]{isosigns_complete.pdf}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \endinput
