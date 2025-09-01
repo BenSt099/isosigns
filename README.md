@@ -15,7 +15,7 @@ The documentation can be viewed [here](https://github.com/BenSt099/isosigns/blob
 
 ## Example
 
-```
+```tex
  %%% Example file   
     \documentclass{article}
     
