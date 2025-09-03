@@ -1,19 +1,28 @@
-# isosigns
+<p align="center">
+  <a href="https://www.ctan.org/pkg/isosigns">
+    <img src="logo/isosigns_logo.jpg" alt="isosigns logo">
+  </a>
+</p>
 
-[![Static Badge](https://img.shields.io/badge/Version-v2-blue)](https://github.com/BenSt099/isosigns/releases/tag/v2)
-[![Static Badge](https://img.shields.io/badge/Package-CTAN-blue)](https://www.ctan.org/pkg/isosafety)
-![Static Badge](https://img.shields.io/badge/Size-%3C2%20MB-red)
-![Static Badge](https://img.shields.io/badge/Maintained-Yes-success)
+<h3 align="center">isosigns</h3>
 
-## Attention
+<p align="center">
+  ISO signs and colors according to the standards 7001, 7010 and 3864
+  <br>
+  <a href="https://ftp.rrze.uni-erlangen.de/ctan/macros/latex/contrib/isosigns/doc/isosigns-docs.pdf"><strong>Explore the docs »</strong></a>
+  <br>
+  <br>
+  <a href="https://github.com/BenSt099/isosigns/issues">Report bug</a>
+  ·
+  <a href="https://github.com/BenSt099/isosigns/issues">Request feature</a>
+</p>
 
-The older version of this package was called "isosafety" and is no longer supported. Moreover, the versions of isosafety (v1.1 and v1.2) both contain bugs.
+## isosigns
 
-## Documentation
+> **Warning**
+This is _not_ an official package from ISO.
 
-The documentation can be viewed [here](https://github.com/BenSt099/isosigns/blob/main/isosigns/doc/isosigns-docs.pdf).
-
-## Example
+## Usage
 
 ```tex
  %%% Example file   
@@ -30,10 +39,19 @@ The documentation can be viewed [here](https://github.com/BenSt099/isosigns/blob
     \end{document}
 ```
 
+## Attention
+
+The package was renamed from __isosafety__ to __isosigns__. The update fixed color and size issues and also brought new signs to the package.
+All packages named __isosafety-v.X__ are deprecated (versions v1.1 and v1.2 contain bugs).
+
+## Documentation
+
+The documentation can be viewed [here](https://github.com/BenSt099/isosigns/blob/main/isosigns/doc/isosigns-docs.pdf).
+
 ## Issues
 
 In case of an issue, please provide a detailed description [here](https://github.com/BenSt099/isosafety/issues).
 
 ## License
 
-This project is licensed under the [The LaTeX Project Public License 1.3c](https://www.ctan.org/license/lppl1.3c)
+This project is licensed under the [The LaTeX Project Public License 1.3c](https://www.ctan.org/license/lppl1.3c).
