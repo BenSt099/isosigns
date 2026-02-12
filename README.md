@@ -60,6 +60,8 @@ Thanks for all the feedback / comments / issues / contributions that made this p
 
 - [@samcarter](https://github.com/samcarter)
 
+- [@0xflotus](https://github.com/0xflotus)
+
 ## Issues
 
 In case of an issue, please provide a detailed description [here](https://github.com/BenSt099/isosafety/issues).
