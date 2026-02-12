@@ -48,6 +48,18 @@ All packages named __isosafety-v.X__ are deprecated (versions v1.1 and v1.2 cont
 
 The documentation can be viewed [here](https://github.com/BenSt099/isosigns/blob/main/isosigns/doc/isosigns-docs.pdf).
 
+## Contributors
+
+Thanks for all the feedback / comments / issues / contributions that made this package even better:
+
+- [@hseliger](https://github.com/hseliger)
+
+- [@quark67](https://github.com/quark67)
+
+- [@SwitWu](https://github.com/SwitWu)
+
+- [@samcarter](https://github.com/samcarter)
+
 ## Issues
 
 In case of an issue, please provide a detailed description [here](https://github.com/BenSt099/isosafety/issues).
