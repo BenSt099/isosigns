@@ -19,8 +19,8 @@
 
 ## isosigns
 
-> **Warning**
-This is _not_ an official package from ISO.
+> [!WARNING]
+> This is _not_ an official package from ISO.
 
 ## Usage
 
